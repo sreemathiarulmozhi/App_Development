@@ -1,0 +1,192 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+/* General Styles */
+.h-wrapper {
+  background: #4a3929;
+  color: white;
+}
+
+.h-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.doggo {
+  margin-right: 10px;
+}
+
+.logo-text h3 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 24px; /* Adjust the size as needed */
+  margin: 0; /* Remove default margin */
+}
+
+.h-menu {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.h-menu > *:hover {
+  cursor: pointer;
+}
+
+.nav-list {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list li {
+  margin-right: 20px;
+  color: #f1f1f1;
+  cursor: pointer;
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: inherit;
+  font-family: 'Fredoka One', cursive; /* Apply Fredoka One font to navigation links */
+  font-size: 18px; /* Optional: Adjust font size as needed */
+}
+
+.active_class {
+  color: rgb(107, 107, 205);
+}
+
+.ham {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 500px) {
+  .nav-list {
+    flex-direction: column;
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    background: #2d2a30;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    width: auto;
+    padding: 0;
+  }
+
+  .nav-list li:nth-child(1) {
+    border-top: none;
+    margin-top: 0;
+  }
+
+  .nav-list li {
+    width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.555);
+    text-align: center;
+    margin-right: 0;
+    padding: 20px 0;
+  }
+
+  .ham {
+    display: block;
+  }
+
+  .nav-list.hide {
+    display: none;
+  }
+
+  .nav-list.show {
+    display: flex;
+  }
+}
+.adopt-button {
+  position: absolute;
+  left: 40px;
+  padding: 10px 20px;
+  background-color:royalblue;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.adopt-button:hover {
+  background-color: red;
+}
+.h-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.h-menu {
+  flex-grow: 1;
+}
+
+.adopt-button {
+  margin-right: auto;
+}
+.h-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.h-menu {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  justify-content: center;
+  margin-left: 50px; 
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-list li {
+  margin: 0 10px;
+}
+
+.adopt-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.adopt-button, .another-button {
+  margin-left: auto;
+}
+
+
+
+.ham {
+  background: none;
+  border: none;
+  cursor: pointer;
+}

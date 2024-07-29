@@ -1,0 +1,184 @@
+/* Import Google Font */
+@import url('https://videos.pexels.com/video-files/5547031/5547031-hd_1920_1080_25fps.mp4');
+
+/* General Styles */
+.background-video-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.background-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ContactUs-main {
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(-225deg, #4a3929 0%, rgba(236, 190, 106, 0.9));
+  width: 100%;
+  height: auto;
+}
+
+.heading {
+  text-align: center;
+  font-size: 2rem;
+  padding: 3rem;
+  color: #21160b;
+}
+
+.separator {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.form {
+  width: 100%;
+  height: 500px;
+  flex-direction: column;
+  margin: 3rem;
+}
+
+.input-fields {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.main input {
+  margin: 2rem;
+  background-color: white;
+  color: grey;
+  border-radius: 5px;
+  width: 50%;
+  padding: 0.5rem 0.5rem;
+  border: 3px solid rgba(120, 120, 120, 0.5);
+}
+
+.main {
+  margin-top: 2rem;
+}
+
+.submit-Button {
+  font-weight: 500;
+  padding: 0.6rem 1.4rem;
+  background: linear-gradient(-225deg, #926f50 0%, rgba(236, 190, 106, 0.9));
+  border: none;
+  border-radius: 4px;
+  transition: all 300ms ease-in;
+  width: 30%;
+  margin: auto;
+}
+
+.submit-Button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.main > p {
+  text-align: center;
+  font-size: 2rem;
+  color: rgb(24, 19, 17);
+}
+
+.guide {
+  width: 90%;
+  height: auto;
+  margin: auto;
+  border: 2px solid #4a3929;
+  background: url("https://edge.mwallpapers.com/photos/celebrities/hd-wallpapers/minimalism-leaves-branch-simple-background-plants-android-iphone-hd-wallpaper-background-downloadhd-wallpapers-desktop-background-android-iphone-1080p-4k-wc4ra.jpg");
+  margin-bottom: 5rem;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.guide-head {
+  text-align: left;
+  font-weight: 500px;
+  font-size: 2rem;
+  padding: 2rem 3.5rem;
+  color: #100b06;
+  text-decoration: underline;
+}
+
+.list {
+  line-height: 1.5rem;
+  margin: 2rem;
+  padding: 0 2rem;
+  color: #4a3929;
+}
+
+.footer {
+  width: 100%;
+  height: auto;
+  background-color: #4a3929;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-div {
+  background-color: hwb(56 81% 3%);
+  width: 90%;
+  height: auto;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.first {
+  text-transform: capitalize;
+  padding: 1rem;
+}
+
+.first p {
+  font-size: 1.5rem;
+  color: #4a3929;
+}
+
+.para {
+  margin: 2rem;
+  color: #4a3929;
+}
+
+.motto {
+  color: #4a3929;
+  padding: 2rem;
+}
+
+.footer-text {
+  font-size: 0.8rem;
+  color: rgb(255, 255, 255);
+  margin: 2rem;
+}
+
+.icon-section {
+  margin: 1rem;
+}
+
+.icon-section a {
+  margin: 0.5rem;
+  color: rgb(255, 255, 255);
+}
+
+.icon-section a:hover {
+  color: #4a3929;
+}
+
+@media (max-width: 716px) {
+  .main input {
+    width: 100%;
+  }
+}

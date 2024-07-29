@@ -1,0 +1,131 @@
+/* Scoped styles for Cats component */
+
+/* Main container background image */
+.cats-page main {
+    background-image: url('https://images.pexels.com/photos/7042926/pexels-photo-7042926.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 20px;
+  }
+  
+  /* Adjusting the pet cards for better readability on the background */
+  .cats-page .pet-card {
+    background: rgba(255, 255, 255, 0.9); /* Slightly transparent white background */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+  
+  /* Header and main section styling for better visibility */
+  .cats-page header {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .cats-page h1 {
+    font-size: 2.5rem;
+    margin: 0;
+  }
+  
+  /* Enhance the overall appearance */
+  .cats-page .pet-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .cats-page .highlight {
+    font-weight: bold;
+    color: #115011; /* Adding a color for highlights */
+  }
+  
+  /* Modal styles */
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Slightly darker overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.3s ease;
+  }
+  
+  .modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    transform: translateY(-20px);
+  }
+  
+  .modal-content.show {
+    transform: translateY(0);
+  }
+  
+  .close-button {
+    background: #e74c3c;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+  
+  .close-button:hover {
+    background: #c0392b;
+    transform: scale(1.05);
+  }
+  
+  .close-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #c0392b;
+  }
+  
+  /* Additional styling for adopt buttons */
+  .btn-modal {
+    background: #115011;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+  
+  .btn-modal:hover {
+    background: #115011;
+    transform: scale(1.05);
+  }
+  
+  .btn-modal:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #115011;
+  }
+  
+  /* Responsive styling */
+  @media (max-width: 768px) {
+    .modal-content {
+      width: 95%;
+    }
+  
+    .btn-modal {
+      width: 100%;
+      padding: 12px;
+      font-size: 18px;
+    }
+  }

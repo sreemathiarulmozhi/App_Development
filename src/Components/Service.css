@@ -1,0 +1,83 @@
+.Service-sec {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Ensure full viewport height */
+  overflow: hidden; /* Ensure video doesn't overflow */
+}
+
+.Service-sec::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://videos.pexels.com/video-files/9124528/9124528-hd_1920_1080_30fps.mp4') no-repeat center center;
+  background-size: cover;
+  z-index: -1; /* Place it behind the content */
+}
+
+.main-div {
+  width: 50vw;
+  padding: 50px;
+  opacity: 1;
+  border-radius: 10px;
+ /* background: rgba(255, 255, 255, 0.8); /* Ensure readability over video */
+}
+
+.sec-h2 {
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 32px;
+  letter-spacing: 5px;
+  word-spacing: 5px;
+  margin-bottom: 50px;
+  color: #ffffff;
+}
+
+.main-heading {
+  display: flex;
+  margin-top: 30px;
+  padding: 20px 0 20px 20px;
+  background: hsla(240, 7%, 6%, 0.1);
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0 1px 4px;
+}
+
+.main-heading h3 {
+  margin-left: 30px;
+  color: #ffffff;
+  word-spacing: 1px;
+  letter-spacing: 1px;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.main-heading p {
+  cursor: pointer;
+  border-radius: 50%;
+  box-shadow: rgba(244, 242, 242, 0.1) 0px 4px 16px, rgba(223, 223, 227, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+  padding: 7px;
+  width: 2rem;
+  height: 2.5rem;
+  inline-size: initial;
+}
+
+.answers {
+  padding: 30px 20px 40px 20px;
+  font-size: 15px;
+  word-spacing: 2px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: rgb(255, 255, 255);
+}
+
+.service-h2 {
+  margin: 3rem 0 0 0;
+}
+
+@media (max-width: 1280px) {
+  .main-div {
+      width: 100%;
+  }
+}
