@@ -1,3 +1,4 @@
+// About.jsx
 import React from "react";
 import "./about.css";
 import CountUp from "react-countup";
@@ -37,10 +38,6 @@ const About = () => {
             </div>
             <br></br>
             <br></br>
-            <div className="search-bar">
-              <input type="text" placeholder="Hey, look for me here!" />
-              <button className="Button">Search</button>
-            </div>
           </div>
           <div className="flexCenter About-right"></div>
         </div>

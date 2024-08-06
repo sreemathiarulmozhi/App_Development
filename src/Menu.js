@@ -1,3 +1,4 @@
+// Menu.jsx
 import React, { useState, useEffect } from "react";
 import "./Nav.css";
 import { NavLink } from "react-router-dom";
@@ -42,48 +43,30 @@ const Menu = () => {
           {(toggleMenu || screenWidth >= 500) && (
             <ul className={`nav-list ${toggleMenu ? "show" : "hide"}`}>
               <li>
-                <NavLink
-                  exact
-                  className={({ isActive }) => (isActive ? "active_class" : "")}
-                  to="/"
-                >
-                  About
+                <NavLink to="/">
+                  <button className="Button">About</button>
                 </NavLink>
               </li>
-
               <li>
-                <NavLink
-                  className={({ isActive }) => (isActive ? "active_class" : "")}
-                  to="/pet-shop"
-                >
-                  Pet Shop
+                <NavLink to="/pet-shop">
+                  <button className="Button">Pet Shop</button>
                 </NavLink>
               </li>
-
               <li>
-                <NavLink
-                  className={({ isActive }) => (isActive ? "active_class" : "")}
-                  to="/service"
-                >
-                  Services
+                <NavLink to="/service">
+                  <button className="Button">Services</button>
                 </NavLink>
               </li>
-
               <li>
-                <NavLink
-                  className={({ isActive }) => (isActive ? "active_class" : "")}
-                  to="/contact"
-                >
+                <NavLink to="/contact">
                   <button className="Button">Contact Us</button>
                 </NavLink>
               </li>
-
               <li>
                 <NavLink to="/login">
                   <button className="Button">Login</button>
                 </NavLink>
               </li>
-
               <li>
                 <NavLink to="/signup">
                   <button className="Button">Signup</button>
@@ -92,6 +75,11 @@ const Menu = () => {
               <li>
                 <NavLink to="/adopt">
                   <button className="Button">Adopt Your Pet</button>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/petopia">
+                  <button className="Button">Petopia</button>
                 </NavLink>
               </li>
             </ul>

@@ -1,29 +1,34 @@
-import { Route, BrowserRouter, Routes } from "react-router-dom";
-import About from "./Components/About";
-import Contact from "./Components/Contact";
-import Menu from "./Menu";
-import Service from "./Components/Service";
-import PetShop from "./Components/PetShop";
-import Login from "./Components/Login";
-import Signup from "./Components/Signup";
-import "./App.css";
-import Cows from "./Components/Cows";
-import Cats from "./Components/Cats";
-import Birds from "./Components/Birds";
-import Goats from "./Components/Goats";
-import Dogs from "./Components/Dogs";
-import Adopt from "./Components/Adopt";
-import Thankyou from "./Components/Thankyou";
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { CartProvider } from './CartContext'; // Import CartProvider
+import About from './Components/About';
+import Contact from './Components/Contact';
+import Menu from './Menu';
+import Service from './Components/Service';
+import PetShop from './Components/PetShop';
+import Login from './Components/Login';
+import Signup from './Components/Signup';
+import Cows from './Components/Cows';
+import Cats from './Components/Cats';
+import Birds from './Components/Birds';
+import Goats from './Components/Goats';
+import Dogs from './Components/Dogs';
+import Adopt from './Components/Adopt';
+import Thankyou from './Components/Thankyou';
+import Petopia from './Components/Petopia';
+import Cart from './Components/Cart';
+import Payment from './Components/Payment'; // Import Payment component
+
 function App() {
   return (
-    <>
-      <div className="App">
-        <BrowserRouter>
+    <div className="App">
+      <BrowserRouter>
+        <CartProvider> {/* Wrap the routes with CartProvider */}
           <Menu />
           <Routes>
-            <Route exact path="/" element={<About name="About" />} />
+            <Route path="/" element={<About name="About" />} />
             <Route path="/service" element={<Service name="Service" />} />
-            <Route path="/pet-shop" element={<PetShop name="pet-shop" />} />
+            <Route path="/pet-shop" element={<PetShop name="Pet-shop" />} />
             <Route path="/contact" element={<Contact name="Contact" />} />
             <Route path="/login" element={<Login name="Login" />} />
             <Route path="/signup" element={<Signup name="Signup" />} />
@@ -34,10 +39,13 @@ function App() {
             <Route path="/dogs" element={<Dogs name="Dogs" />} />
             <Route path="/adopt" element={<Adopt name="Adopt" />} />
             <Route path="/thank-you" element={<Thankyou name="Thankyou" />} />
+            <Route path="/petopia" element={<Petopia name="Petopia" />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/payment" element={<Payment />} /> {/* Add route for Payment page */}
           </Routes>
-        </BrowserRouter>
-      </div>
-    </>
+        </CartProvider>
+      </BrowserRouter>
+    </div>
   );
 }
 

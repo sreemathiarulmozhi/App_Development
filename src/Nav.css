@@ -13,6 +13,7 @@
   align-items: center;
   padding: 1rem;
   color: rgba(255, 255, 255, 0.78);
+  height: 150px;
 }
 
 .logo-container {
@@ -34,6 +35,7 @@
   display: flex;
   align-items: center;
   gap: 2rem;
+  flex-grow: 1;
 }
 
 .h-menu > *:hover {
@@ -52,7 +54,6 @@
 .nav-list li {
   margin-right: 20px;
   color: #f1f1f1;
-  cursor: pointer;
 }
 
 .nav-list a {
@@ -60,6 +61,15 @@
   color: inherit;
   font-family: 'Fredoka One', cursive; /* Apply Fredoka One font to navigation links */
   font-size: 18px; /* Optional: Adjust font size as needed */
+}
+
+.nav-list button {
+  background: none;
+  border: none;
+  font-family: 'Fredoka One', cursive;
+  color: inherit;
+  font-size: 18px; /* Same as link font size for consistency */
+  cursor: pointer;
 }
 
 .active_class {
@@ -89,16 +99,11 @@
     padding: 0;
   }
 
-  .nav-list li:nth-child(1) {
-    border-top: none;
-    margin-top: 0;
-  }
-
   .nav-list li {
     width: 100%;
     border-top: 1px solid rgba(255, 255, 255, 0.555);
     text-align: center;
-    margin-right: 0;
+    margin: 0;
     padding: 20px 0;
   }
 
@@ -113,80 +118,4 @@
   .nav-list.show {
     display: flex;
   }
-}
-.adopt-button {
-  position: absolute;
-  left: 40px;
-  padding: 10px 20px;
-  background-color:royalblue;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 10px;
-  font-weight: bold;
-}
-
-.adopt-button:hover {
-  background-color: red;
-}
-.h-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.h-menu {
-  flex-grow: 1;
-}
-
-.adopt-button {
-  margin-right: auto;
-}
-.h-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo-container {
-  display: flex;
-  align-items: center;
-}
-
-.h-menu {
-  display: flex;
-  align-items: center;
-  flex-grow: 1;
-  justify-content: center;
-  margin-left: 50px; 
-}
-
-.nav-list {
-  display: flex;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.nav-list li {
-  margin: 0 10px;
-}
-
-.adopt-container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-.adopt-button, .another-button {
-  margin-left: auto;
-}
-
-
-
-.ham {
-  background: none;
-  border: none;
-  cursor: pointer;
 }

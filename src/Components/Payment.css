@@ -1,0 +1,46 @@
+/* Payment.css */
+
+.componentStyle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('https://media.cnn.com/api/v1/images/stellar/prod/191203174218-sunset-3277237-1920-akif-qureshipixabay.jpg?q=w_1600,h_900,x_0,y_0,c_fill/h_618');
+  }
+  
+  .formStyle {
+    background-color: #fff;
+    padding: 60px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 600px;
+    width: 400px;
+    box-sizing: border-box;
+  }
+  
+  .logoStyle {
+    width: 40%;
+    height: 90px;
+    margin-bottom: 20px;
+  }
+  
+  .inputStyle {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+  }
+  
+  .buttonStyle {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  

@@ -1,0 +1,95 @@
+.Cart {
+    padding: 20px;
+    position: relative;
+    background-color: #f9f9f9;
+}
+
+.navigation-arrows {
+    position: absolute;
+    top: 10px;
+    left: 10px; /* Position the arrow in the left corner */
+}
+
+.arrow-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.cart-header {
+    text-align: center; /* Center-align only the heading */
+    margin-bottom: 20px; /* Optional: space below heading */
+}
+
+.cart-items {
+    list-style: none;
+    padding: 0;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+}
+
+.cart-item-image {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.cart-item-details {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.remove-button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.remove-button:hover {
+    background-color: #e60000;
+}
+
+.cart-footer {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: right;
+    width: 250px; /* Adjust width as needed */
+}
+
+.total-cost {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.payment-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.payment-button:hover {
+    background-color: #0056b3;
+}
