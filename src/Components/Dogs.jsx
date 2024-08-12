@@ -35,6 +35,321 @@ const Dogs = () => {
         <section className="pet-cards">
           <div className="pet-card">
             <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjtdFAE5m183nwhdFys1N41WsGgRGJgRUgyw&s"
+              alt="Indian Pariah Dog"
+              className="pet-image"
+            />
+            <h2>Indian Pariah Dog</h2>
+            <p>
+              <span className="highlight">Size</span>: Medium (18-25 inches)
+              <br />
+              <span className="highlight">Lifespan</span>: 10-14 years
+              <br />
+              <span className="highlight">Personality</span>: Intelligent,
+              alert, and adaptable
+              <br />
+              <span className="highlight">Care</span>: Low maintenance, needs
+              regular exercise and a balanced diet.
+              <br />
+              <span className="highlight">Features</span>: Known for their
+              resilience and survival instincts.
+              <br />
+              <span className="highlight">Current Price</span>: ₹5,000 -
+              ₹10,000.
+              <br />
+              <a
+                href="https://en.wikipedia.org/wiki/Indian_pariah_dog"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Learn more about Indian Pariah Dog
+              </a>
+            </p>
+            <button
+              onClick={() => toggleModal("Indian Pariah Dog")}
+              className="btn-modal"
+            >
+              Click to adopt me!
+            </button>
+          </div>
+
+          <div className="pet-card">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/The_Rajapaalayam_Breead_2.png/220px-The_Rajapaalayam_Breead_2.png"
+              alt="Rajapalayam"
+              className="pet-image"
+            />
+            <h2>Rajapalayam</h2>
+            <p>
+              <span className="highlight">Size</span>: Large (25-30 inches)
+              <br />
+              <span className="highlight">Lifespan</span>: 9-12 years
+              <br />
+              <span className="highlight">Personality</span>: Loyal, brave, and
+              alert
+              <br />
+              <span className="highlight">Care</span>: Requires regular exercise
+              and a protein-rich diet.
+              <br />
+              <span className="highlight">Features</span>: Known for their
+              hunting skills and guard dog capabilities.
+              <br />
+              <span className="highlight">Current Price</span>: ₹8,000 -
+              ₹15,000.
+              <br />
+              <a
+                href="https://en.wikipedia.org/wiki/Rajapalayam_dog"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Learn more about Rajapalayam
+              </a>
+            </p>
+            <button
+              onClick={() => toggleModal("Rajapalayam")}
+              className="btn-modal"
+            >
+              Click to adopt me!
+            </button>
+          </div>
+
+          <div className="pet-card">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Mudhol_hound_dog_3.png/220px-Mudhol_hound_dog_3.png"
+              alt="Mudhol Hound"
+              className="pet-image"
+            />
+            <h2>Mudhol Hound</h2>
+            <p>
+              <span className="highlight">Size</span>: Medium to Large (23-29
+              inches)
+              <br />
+              <span className="highlight">Lifespan</span>: 10-15 years
+              <br />
+              <span className="highlight">Personality</span>: Agile, loyal, and
+              intelligent
+              <br />
+              <span className="highlight">Care</span>: Requires regular exercise
+              and a balanced diet.
+              <br />
+              <span className="highlight">Features</span>: Known for their speed
+              and hunting abilities.
+              <br />
+              <span className="highlight">Current Price</span>: ₹7,000 -
+              ₹20,000.
+              <br />
+              <a
+              href="https://en.wikipedia.org/wiki/Mudhol_Hound"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Learn more about Mudhol Hound
+              </a>
+            </p>
+            <button
+              onClick={() => toggleModal("Mudhol Hound")}
+              className="btn-modal"
+            >
+              Click to adopt me!
+            </button>
+          </div>
+
+          <div className="pet-card">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Kanni.jpg"
+              alt="Kanni"
+              className="pet-image"
+            />
+            <h2>Kanni</h2>
+            <p>
+              <span className="highlight">Size</span>: Medium (20-25 inches)
+              <br />
+              <span className="highlight">Lifespan</span>: 12-16 years
+              <br />
+              <span className="highlight">Personality</span>: Loyal, gentle, and
+              agile
+              <br />
+              <span className="highlight">Care</span>: Requires regular exercise
+              and a balanced diet.
+              <br />
+              <span className="highlight">Features</span>: Known for their
+              hunting skills and speed.
+              <br />
+              <span className="highlight">Current Price</span>: ₹10,000 -
+              ₹20,000.
+              <br />
+              <a
+                href="https://en.wikipedia.org/wiki/Kanni"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Learn more about Kanni
+              </a>
+            </p>
+            <button onClick={() => toggleModal("Kanni")} className="btn-modal">
+              Click to adopt me!
+            </button>
+          </div>
+
+          <div className="pet-card">
+            <img
+              src="https://www.wagr.ai/cdn/shop/articles/breed-at-a-glance-chippiparai-indian-sight-hound-448986.jpg?v=1701182882"
+              alt="Chippiparai"
+              className="pet-image"
+            />
+            <h2>Chippiparai</h2>
+            <p>
+              <span className="highlight">Size</span>: Medium (25-27 inches)
+              <br />
+              <span className="highlight">Lifespan</span>: 13-15 years
+              <br />
+              <span className="highlight">Personality</span>: Loyal,
+              independent, and intelligent
+              <br />
+              <span className="highlight">Care</span>: Needs regular exercise
+              and a balanced diet.
+              <br />
+              <span className="highlight">Features</span>: Known for their
+              hunting skills and loyalty.
+              <br />
+              <span className="highlight">Current Price</span>: ₹5,000 -
+              ₹12,000.
+              <br />
+              <a
+                href="https://en.wikipedia.org/wiki/Chippiparai"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Learn more about Chippiparai
+              </a>
+            </p>
+            <button
+              onClick={() => toggleModal("Chippiparai")}
+              className="btn-modal"
+            >
+              Click to adopt me!
+            </button>
+          </div>
+
+          <div className="pet-card">
+            <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/The_Combai_Breed_1.png/640px-The_Combai_Breed_1.png"
+              alt="kombai"
+              className="pet-image"
+            />
+            <h2>Kombai</h2>
+            <p>
+              <span className="highlight">Size</span>: Medium (23-25 inches)
+              <br />
+              <span className="highlight">Lifespan</span>: 12-15 years
+              <br />
+              <span className="highlight">Personality</span>: Brave, loyal, and
+              agile
+              <br />
+              <span className="highlight">Care</span>: Requires regular exercise
+              and a protein-rich diet.
+              <br />
+              <span className="highlight">Features</span>: Known for their
+              hunting skills and bravery.
+              <br />
+              <span className="highlight">Current Price</span>: ₹7,000 -
+              ₹15,000.
+              <br />
+              <a
+              href="https://en.wikipedia.org/wiki/Kombai_dog"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Learn more about Combai
+              </a>
+            </p>
+            <button onClick={() => toggleModal("Combai")} className="btn-modal">
+              Click to adopt me!
+            </button>
+          </div>
+
+          <div className="pet-card">
+            <img
+              src="https://www.shutterstock.com/image-photo/bakharwal-dog-on-rock-himalayas-260nw-2327334049.jpg"
+              alt="Bakharwal Dog"
+              className="pet-image"
+            />
+            <h2>Bakharwal Dog</h2>
+            <p>
+              <span className="highlight">Size</span>: Large (24-30 inches)
+              <br />
+              <span className="highlight">Lifespan</span>: 10-14 years
+              <br />
+              <span className="highlight">Personality</span>: Protective, loyal,
+              and strong
+              <br />
+              <span className="highlight">Care</span>: Needs regular exercise
+              and a balanced diet.
+              <br />
+              <span className="highlight">Features</span>: Known for their
+              protective nature and strength.
+              <br />
+              <span className="highlight">Current Price</span>: ₹15,000 -
+              ₹25,000.
+              <br />
+              <a
+              href="https://en.wikipedia.org/wiki/Bakharwal_dog"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Learn more about Bakharwal Dog
+              </a>
+            </p>
+            <button
+              onClick={() => toggleModal("Bakharwal Dog")}
+              className="btn-modal"
+            >
+              Click to adopt me!
+            </button>
+          </div>
+
+          <div className="pet-card">
+            <img
+              src="https://happypet.care/_next/image?url=https%3A%2F%2Fhappypetproduction.s3.ap-south-1.amazonaws.com%2FbreedFiles%2Fdog%2F64cdf7927f61208fdb61fb49%2FgalleryImages%2Flarge_file_1691643835575.webp&w=1080&q=75"
+              alt="Gaddi Kutta"
+              className="pet-image"
+            />
+            <h2>Gaddi Kutta</h2>
+            <p>
+              <span className="highlight">Size</span>: Large (24-28 inches)
+              <br />
+              <span className="highlight">Lifespan</span>: 10-14 years
+              <br />
+              <span className="highlight">Personality</span>: Strong, loyal, and
+              protective
+              <br />
+              <span className="highlight">Care</span>: Requires regular exercise
+              and a balanced diet.
+              <br />
+              <span className="highlight">Features</span>: Known for their
+              strength and guarding abilities.
+              <br />
+              <span className="highlight">Current Price</span>: ₹10,000 -
+              ₹20,000.
+              <br />
+              <a
+                href="https://en.wikipedia.org/wiki/Himalayan_Sheepdog"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Learn more about Gaddi Kutta
+              </a>
+            </p>
+            <button
+              onClick={() => toggleModal("Gaddi Kutta")}
+              className="btn-modal"
+            >
+              Click to adopt me!
+            </button>
+          </div>
+
+          <div className="pet-card">
+            <img
               src="https://tse4.mm.bing.net/th?id=OIP.tTuP_kMf6Kv2tqvh8v4eEAHaE8&pid=Api&P=0&h=180"
               alt="Labrador Retriever"
               className="pet-image"

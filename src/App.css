@@ -35,4 +35,27 @@
   to {
     transform: rotate(360deg);
   }
+
 }
+:root {
+  --background-color: #ffffff;
+  --text-color: #000000;
+}
+
+:root.dark-mode {
+  --background-color: #121212;
+  --text-color: #ffffff;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.settings-container {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* Add any additional dark mode styles as needed */
+

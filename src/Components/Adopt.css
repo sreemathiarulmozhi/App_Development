@@ -7,7 +7,7 @@
   height: 100%;
   z-index: -1;
   background: none;
-  opacity: 0.7; /* Adjust the opacity as needed */
+  opacity: 0.7; 
 }
 
 .adoption-form-container video {
@@ -19,7 +19,7 @@
   width: auto;
   height: auto;
   z-index: -1;
-  opacity: 10; /* Adjust the opacity as needed */
+  opacity: 10; 
 }
 
 .adoption-form-container {
@@ -27,13 +27,10 @@
   max-width: 400px;
   margin: 0 auto;
   padding: 20px;
-  background-color: rgba(248, 248, 248, 0.9); /* Semi-transparent background */
+  background-color: rgba(248, 248, 248, 0.9); 
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
-/* Your existing CSS rules */
-
 
 .adoption-form-container {
     max-width: 400px;

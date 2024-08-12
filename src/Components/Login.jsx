@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Import the useNavigate hook
+import axios from "axios"; // Import Axios
+import { useNavigate } from "react-router-dom";
 import { Button, TextField, Box, Typography, IconButton } from "@mui/material";
 import GoogleIcon from "@mui/icons-material/Google";
 import MicrosoftIcon from "@mui/icons-material/Microsoft";
@@ -8,11 +9,30 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const navigate = useNavigate(); // Initialize the useNavigate hook
+  const navigate = useNavigate();
 
   const handleLogin = () => {
-    alert("Logged in!");
-  };
+    axios.post('/api/auth/login', { email, password })
+      .then(response => {
+        alert(response.data);
+        navigate('/home'); // Redirect after successful login
+      })
+      .catch(error => {
+        if (error.response) {
+          // The request was made and the server responded with a status code outside of the range of 2xx
+          console.log('Error Response:', error.response.data);
+          alert('Login failed: ' + error.response.data);
+        } else if (error.request) {
+          // The request was made but no response was received
+          console.log('Error Request:', error.request);
+          alert('Login failed: No response from server');
+        } else {
+          // Something happened in setting up the request that triggered an Error
+          console.log('Error Message:', error.message);
+          alert('Login failed: ' + error.message);
+        }
+      });
+  };  
 
   const styles = {
     page: {
@@ -31,7 +51,7 @@ function Login() {
       width: "100%",
       height: "100%",
       objectFit: "cover",
-      zIndex: -1, // Place it behind the content
+      zIndex: -1,
     },
     container: {
       backgroundColor: "rgba(255, 255, 255, 0.8)",
@@ -53,7 +73,7 @@ function Login() {
       cursor: "pointer",
     },
     signUpText: {
-      color: "#4a3929", // Change this to a shade of brown
+      color: "#4a3929",
       cursor: "pointer",
     },
   };
@@ -107,7 +127,7 @@ function Login() {
             <GoogleIcon />
           </IconButton>
           <IconButton
-            style={{ color: "#4a3929" }} // Microsoft color
+            style={{ color: "#4a3929" }}
             onClick={() => alert("Login with Microsoft")}
           >
             <MicrosoftIcon />

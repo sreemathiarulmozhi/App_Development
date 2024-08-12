@@ -1,75 +1,70 @@
-import React, { useState } from 'react';
-import { Typography } from '@mui/material';
-import './Payment.css'; // Import the CSS file
+import React, { useState } from "react";
+import { Typography } from "@mui/material";
+import "./Payment.css"; // Import the CSS file
+import { useCart } from "../CartContext"; // Import your CartContext if applicable
 
 const Payment = () => {
-  const upiLogo = 'https://play-lh.googleusercontent.com/6_Qan3RBgpJUj0C2ct4l0rKKVdiJgF6vy0ctfWyQ7aN0lBjs78M-1cQUONQSVeo2jfs';
-  const googlePayLogo = 'https://images.hindustantimes.com/tech/img/2020/11/05/1600x900/image_-_2020-11-05T095740.083_1604550459365_1604550465218_1604550598928.jpg';
+  const { cart } = useCart(); // Access cart data from context
+  const [paymentMethod, setPaymentMethod] = useState("creditCard");
+  const [cardNumber, setCardNumber] = useState("");
+  const [expiryDate, setExpiryDate] = useState("");
+  const [cvvCode, setCvvCode] = useState("");
+  const [userId, setUserId] = useState("");
+  const [password, setPassword] = useState("");
+  const [upiId, setUpiId] = useState("");
+  const [googlePayId, setGooglePayId] = useState("");
+  const [showSuccess, setShowSuccess] = useState(false);
 
-  const [email, setEmail] = useState('');
-  const [paymentMethod, setPaymentMethod] = useState('creditCard');
-  const [cardNumber, setCardNumber] = useState('');
-  const [expiryDate, setExpiryDate] = useState('');
-  const [cvvCode, setCvvCode] = useState('');
-  const [userId, setUserId] = useState('');
-  const [password, setPassword] = useState('');
-  const [upiId, setUpiId] = useState('');
-  const [googlePayId, setGooglePayId] = useState('');
+  // Convert cart object to array
+  const cartItems = Object.values(cart);
+
+  // Calculate total cost
+  const totalCost = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
   const handlePayment = () => {
-    // Validate input values before processing payment
-    if (!isValidEmail(email)) {
-      alert('Invalid email address');
-      return;
-    }
-
-    if (paymentMethod === 'creditCard') {
+    
+    if (paymentMethod === "creditCard") {
       if (!isValidCardNumber(cardNumber)) {
-        alert('Invalid card number');
+        alert("Invalid card number");
         return;
       }
 
       if (!isValidExpiryDate(expiryDate)) {
-        alert('Invalid expiry date');
+        alert("Invalid expiry date");
         return;
       }
 
       if (!isValidCvvCode(cvvCode)) {
-        alert('Invalid CVV code');
+        alert("Invalid CVV code");
         return;
       }
-    } else if (paymentMethod === 'netBanking') {
+    } else if (paymentMethod === "netBanking") {
       if (!isValidUserId(userId)) {
-        alert('Invalid user ID');
+        alert("Invalid user ID");
         return;
       }
 
       if (!isValidPassword(password)) {
-        alert('Invalid password');
+        alert("Invalid password");
         return;
       }
-    } else if (paymentMethod === 'upi') {
+    } else if (paymentMethod === "upi") {
       if (!isValidUpiId(upiId)) {
-        alert('Invalid UPI ID');
+        alert("Invalid UPI ID");
         return;
       }
-    } else if (paymentMethod === 'googlePay') {
+    } else if (paymentMethod === "googlePay") {
       if (!isValidGooglePayId(googlePayId)) {
-        alert('Invalid Google Pay ID');
+        alert("Invalid Google Pay ID");
         return;
       }
     }
 
-    // Process payment logic here
-    console.log('Processing payment with:', { email, paymentMethod, cardNumber, expiryDate, cvvCode, userId, password, upiId, googlePayId });
-    alert('Payment Successful Tharika');
+    // Simulate payment processing
+    setShowSuccess(true);
   };
 
-  const isValidEmail = (value) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(value);
-  };
-
+  
   const isValidCardNumber = (value) => {
     const cardNumberRegex = /^[0-9]{16}$/;
     return cardNumberRegex.test(value);
@@ -91,126 +86,124 @@ const Payment = () => {
   };
 
   const isValidPassword = (value) => {
-    const passwordRegex = /^(?=.*\d)(?=.*[a-zA-Z])(?=.*_).{8}$/;
+    const passwordRegex = /^(?=.*\d)(?=.*[a-zA-Z])(?=.*[_@])[A-Za-z\d@_]{8,}$/;
     return passwordRegex.test(value);
   };
 
   const isValidUpiId = (value) => {
-    const upiIdRegex = /^[0-9]{6}$/;
+    const upiIdRegex = /^[\w\.-]+@[\w\.-]+$/;
     return upiIdRegex.test(value);
   };
 
   const isValidGooglePayId = (value) => {
-    const upiIdRegex = /^[0-9]{6}$/;
-    return upiIdRegex.test(value);
+    const googlePayIdRegex = /^[\w\.-]+@[\w\.-]+$/;
+    return googlePayIdRegex.test(value);
   };
 
   return (
-    <div className="componentStyle">
-      <div className="formStyle">
-        <Typography variant="h4" sx={{ textAlign: 'center', display: 'inline-block', display: 'flex' }}>
-          <strong>PAYMENT GATEWAY</strong>
-        </Typography>
-        <br /><br />
-        <label>
-          <strong>Email:</strong>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="sample@gmail.com"
-            required
-            className="inputStyle"
-          />
-        </label>
-
-        <label>
-          <strong>Payment Method:</strong>
-          <select
-            value={paymentMethod}
-            onChange={(e) => setPaymentMethod(e.target.value)}
-            className="inputStyle"
+    <div className="payment-page">
+      <video className="backgroundVideo" autoPlay loop muted>
+        <source
+          src="https://cdn.pixabay.com/video/2023/12/06/192283-892475138_tiny.mp4"
+          type="video/mp4"
+        />
+      </video>
+      <div className="form-container">
+        <div className="formStyle">
+          <Typography
+            variant="h4"
+            sx={{ textAlign: "center", display: "flex", justifyContent: "center" }}
           >
-            <option value="creditCard">Credit Card</option>
-            <option value="netBanking">Net Banking</option>
-            <option value="upi">PAYTM</option>
-            <option value="googlePay">Google Pay</option>
-          </select>
-        </label>
+            <strong>Payment Portal</strong>
+          </Typography>
+          <br />
+          <br />
+          <label>
+            <strong>Payment Method:</strong>
+            <select
+              value={paymentMethod}
+              onChange={(e) => setPaymentMethod(e.target.value)}
+              className="inputStyle"
+            >
+              <option value="creditCard">Credit Card</option>
+              <option value="netBanking">Net Banking</option>
+              <option value="upi">PAYTM</option>
+              <option value="googlePay">Google Pay</option>
+            </select>
+          </label>
 
-        {paymentMethod === 'creditCard' && (
-          <>
-            <label>
-              <strong>Card Number:</strong>
-              <input
-                type="text"
-                value={cardNumber}
-                onChange={(e) => setCardNumber(e.target.value)}
-                placeholder="Should be 16 Digits"
-                maxLength="16"
-                required
-                className="inputStyle"
-              />
-            </label>
+          {paymentMethod === "creditCard" && (
+            <>
+              <label>
+                <strong>Card Number:</strong>
+                <input
+                  type="text"
+                  value={cardNumber}
+                  onChange={(e) => setCardNumber(e.target.value)}
+                  placeholder="Should be 16 Digits"
+                  maxLength="16"
+                  required
+                  className="inputStyle"
+                />
+              </label>
 
-            <label>
-              <strong>Expiry Date:</strong>
-              <input
-                type="text"
-                value={expiryDate}
-                onChange={(e) => setExpiryDate(e.target.value)}
-                placeholder="MM/YYYY"
-                pattern="(0[1-9]|1[0-2])\/[0-9]{4}"
-                required
-                className="inputStyle"
-              />
-            </label>
+              <label>
+                <strong>Expiry Date:</strong>
+                <input
+                  type="text"
+                  value={expiryDate}
+                  onChange={(e) => setExpiryDate(e.target.value)}
+                  placeholder="MM/YYYY"
+                  pattern="(0[1-9]|1[0-2])\/[0-9]{4}"
+                  required
+                  className="inputStyle"
+                />
+              </label>
 
-            <label>
-              <strong>CVV Code:</strong>
-              <input
-                type="text"
-                value={cvvCode}
-                onChange={(e) => setCvvCode(e.target.value)}
-                placeholder="Enter CVV code"
-                pattern="[0-9]{3}"
-                required
-                className="inputStyle"
-              />
-            </label>
-          </>
-        )}
+              <label>
+                <strong>CVV Code:</strong>
+                <input
+                  type="text"
+                  value={cvvCode}
+                  onChange={(e) => setCvvCode(e.target.value)}
+                  placeholder="Enter CVV code"
+                  pattern="[0-9]{3}"
+                  required
+                  className="inputStyle"
+                />
+              </label>
+            </>
+          )}
 
-        {paymentMethod === 'netBanking' && (
-          <>
-            <label>
-              <strong>User ID:</strong>
-              <input
-                type="text"
-                value={userId}
-                onChange={(e) => setUserId(e.target.value)}
-                placeholder="Enter user ID"
-                required
-                className="inputStyle"
-              />
-            </label>
+          {paymentMethod === "netBanking" && (
+            <>
+              <label>
+                <strong>User ID:</strong>
+                <input
+                  type="text"
+                  value={userId}
+                  onChange={(e) => setUserId(e.target.value)}
+                  placeholder="Enter User ID"
+                  required
+                  className="inputStyle"
+                />
+              </label>
 
-            <label>
-              <strong>Password:</strong>
-              <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Enter password"
-                required
-                className="inputStyle"
-              />
-            </label>
-          </>
-        )}
+              <label>
+                <strong>Password:</strong>
+                <input
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Enter Password"
+                  required
+                  className="inputStyle"
+                />
+              </label>
+            </>
+          )}
 
-        {paymentMethod === 'upi' && (
-          <>
+          {paymentMethod === "upi" && (
             <label>
               <strong>UPI ID:</strong>
               <input
@@ -218,41 +211,62 @@ const Payment = () => {
                 value={upiId}
                 onChange={(e) => setUpiId(e.target.value)}
                 placeholder="Enter UPI ID"
-                pattern="[0-9]{6}"
                 required
                 className="inputStyle"
               />
             </label>
-            <img src={upiLogo} alt="UPI Logo" className="logoStyle" />
-          </>
-        )}
-        {paymentMethod === 'googlePay' && (
-            <>
-              <label>
-                <strong>Google Pay ID:</strong>
-                <input
-                  type="text"
-                  value={googlePayId}
-                  onChange={(e) => setGooglePayId(e.target.value)}
-                  placeholder="Enter Google Pay ID"
-                  pattern="[0-9]{6}"
-                  required
-                  className="inputStyle"
-                />
-              </label>
-              <img src={googlePayLogo} alt="Google Pay Logo" className="logoStyle" />
-            </>
           )}
-  
-          <button
-            onClick={handlePayment}
-            className="buttonStyle"
-          >
-            <strong>CONFIRM PAYMENT</strong>
+
+          {paymentMethod === "googlePay" && (
+            <label>
+              <strong>Google Pay ID:</strong>
+              <input
+                type="text"
+                value={googlePayId}
+                onChange={(e) => setGooglePayId(e.target.value)}
+                placeholder="Enter Google Pay ID"
+                required
+                className="inputStyle"
+              />
+            </label>
+          )}
+
+          <button className="buttonStyle" onClick={handlePayment}>
+            Submit Payment
           </button>
         </div>
+
+        {showSuccess && (
+          <div className="success-popup">
+            <div className="popup-content">
+              <Typography variant="h6">Payment Successful</Typography>
+              <p>Your payment has been processed successfully.</p>
+              <div className="order-summary">
+                <Typography variant="h6">Order Summary</Typography>
+                <ul>
+                  {cartItems.map((item) => (
+                    <li key={item.id} className="order-item">
+                      <img src={item.image} alt={item.name} className="order-item-image" />
+                      <div className="order-item-details">
+                        <h3>{item.name}</h3>
+                        <p>Price: {item.price} INR</p>
+                        <p>Quantity: {item.quantity}</p>
+                        <p>Total: {item.price * item.quantity} INR</p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+                <p><strong>Total Cost: {totalCost} INR</strong></p>
+              </div>
+              <button className="close-button" onClick={() => setShowSuccess(false)}>
+                Close
+              </button>
+            </div>
+          </div>
+        )}
       </div>
-    );
+    </div>
+  );
 };
+
 export default Payment;
-  

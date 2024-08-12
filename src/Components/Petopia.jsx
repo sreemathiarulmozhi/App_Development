@@ -6,7 +6,7 @@ import { ShoppingCart } from "@mui/icons-material";
 
 const Petopia = () => {
   const navigate = useNavigate();
-  const { addToCart, getProductQuantity, removeFromCart } = useCart(); // Assuming you have a CartContext
+  const { addToCart, getProductQuantity, removeFromCart } = useCart();
 
   const products = [
     {
@@ -465,14 +465,13 @@ const Petopia = () => {
         image:
           "https://m.media-amazon.com/images/I/71OaME+kofL.AC_UL480_FMwebp_QL65.jpg",
       },
-    
   ];
 
   const [searchTerm, setSearchTerm] = useState("");
   const [filterCategory, setFilterCategory] = useState("All");
   const [sortOption, setSortOption] = useState("low");
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 4;
+  const itemsPerPage = 6; // Updated items per page
 
   const handleSearch = (event) => setSearchTerm(event.target.value);
 
@@ -509,13 +508,13 @@ const Petopia = () => {
   };
 
   const handleAddToCart = (product) => {
-    addToCart(product, 1); // Add 1 item to the cart
+    addToCart(product, 1);
   };
 
   const handleRemoveFromCart = (product) => {
     const currentQuantity = getProductQuantity(product.id);
     if (currentQuantity > 0) {
-      removeFromCart(product, 1); // Remove 1 item from the cart
+      removeFromCart(product, 1);
     }
   };
 
@@ -530,13 +529,13 @@ const Petopia = () => {
 
   return (
     <div className="Petopia">
+      <video autoPlay loop muted className="background-video">
+        <source
+          src="https://videos.pexels.com/video-files/27545637/12164137_1920_1080_60fps.mp4"
+          type="video/mp4"
+        />
+      </video>
       <div className="heading-bar">
-        <video autoPlay loop muted>
-          <source
-            src="https://cdn.pixabay.com/video/2016/06/28/3638-172489056_tiny.mp4"
-            type="video/mp4"
-          />
-        </video>
         <h1>Petopia</h1>
         <button className="cart-icon" onClick={handleCartClick}>
           <ShoppingCart fontSize="large" />
@@ -573,9 +572,9 @@ const Petopia = () => {
             <div className="product-card" key={product.id}>
               <img src={product.image} alt={product.name} />
               <h3>{product.name}</h3>
-              <p>{product.price} INR</p>
+              <p>Rs.{product.price}</p>
               {quantity > 0 ? (
-                <div className="quantity-container">
+                <div>
                   <button onClick={() => handleQuantityChange(product.id, -1)}>
                     -
                   </button>
@@ -594,33 +593,9 @@ const Petopia = () => {
         })}
       </div>
       <div className="pagination">
-        <button
-          onClick={() => handlePageChange(1)}
-          disabled={currentPage === 1}
-        >
-          First
-        </button>
-        <button
-          onClick={() => handlePageChange(currentPage - 1)}
-          disabled={currentPage === 1}
-        >
-          Previous
-        </button>
-        <span>
-          Page {currentPage} of {totalPages}
-        </span>
-        <button
-          onClick={() => handlePageChange(currentPage + 1)}
-          disabled={currentPage === totalPages}
-        >
-          Next
-        </button>
-        <button
-          onClick={() => handlePageChange(totalPages)}
-          disabled={currentPage === totalPages}
-        >
-          Last
-        </button>
+        <button onClick={() => handlePageChange(currentPage - 1)}>Previous</button>
+        <span>{`Page ${currentPage} of ${totalPages}`}</span>
+        <button onClick={() => handlePageChange(currentPage + 1)}>Next</button>
       </div>
     </div>
   );

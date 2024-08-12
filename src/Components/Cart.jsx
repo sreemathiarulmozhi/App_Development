@@ -8,26 +8,36 @@ const Cart = () => {
   const navigate = useNavigate();
   const { cart, removeFromCart } = useCart();
 
-  // Convert cart object to array
   const cartItems = Object.values(cart);
 
-  // Calculate total cost
   const totalCost = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  const totalItems = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
   const handleBackClick = () => {
-    navigate('/petopia'); // Navigate to Petopia page
+    navigate('/petopia');
   };
 
   const handleRemoveClick = (item) => {
-    removeFromCart(item); // Remove item from cart
+    removeFromCart(item);
   };
 
   const handlePaymentClick = () => {
-    navigate('/payment'); // Navigate to Payment page
+    // Retrieve user details from localStorage
+    const storedDetails = localStorage.getItem("userDetails");
+
+    if (!storedDetails) {
+      alert('You are not signed in. Please sign in to proceed with the payment.');
+    } else {
+      navigate('/payment');
+    }
   };
 
   return (
     <div className="Cart">
+      <video className="background-video" autoPlay muted loop>
+        <source src="https://cdn.pixabay.com/video/2022/09/20/132000-751915339_tiny.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
       <div className="navigation-arrows">
         <button className="arrow-button back-arrow" onClick={handleBackClick}>
           <ArrowBackIos fontSize="large" />
@@ -37,24 +47,29 @@ const Cart = () => {
       {cartItems.length === 0 ? (
         <p>Your cart is empty</p>
       ) : (
-        <ul className="cart-items">
-          {cartItems.map((item) => (
-            <li key={item.id} className="cart-item">
-              <img src={item.image} alt={item.name} className="cart-item-image" />
-              <div className="cart-item-details">
-                <h3>{item.name}</h3>
-                <p>{item.price} INR</p>
-                <p>Quantity: {item.quantity}</p>
-              </div>
-              <button className="remove-button" onClick={() => handleRemoveClick(item)}>Remove</button>
-            </li>
-          ))}
-        </ul>
+        <div className="cart-container">
+          <div className="order-summary">
+            <p>Total Items: {totalItems}</p>
+            <p>Total Cost: Rs. {totalCost}</p>
+          </div>
+          <ul className="cart-items">
+            {cartItems.map((item) => (
+              <li key={item.id} className="cart-item">
+                <img src={item.image} alt={item.name} className="cart-item-image" />
+                <div className="cart-item-details">
+                  <h3>{item.name}</h3>
+                  <p>Rs.{item.price}</p>
+                  <p>Quantity: {item.quantity}</p>
+                </div>
+                <button className="remove-button" onClick={() => handleRemoveClick(item)}>Remove</button>
+              </li>
+            ))}
+          </ul>
+          <div className="cart-footer">
+            <button className="payment-button" onClick={handlePaymentClick}>Proceed to Payment</button>
+          </div>
+        </div>
       )}
-      <div className="cart-footer">
-        <p className="total-cost">Total Cost: {totalCost} INR</p>
-        <button className="payment-button" onClick={handlePaymentClick}>Proceed to Payment</button>
-      </div>
     </div>
   );
 };

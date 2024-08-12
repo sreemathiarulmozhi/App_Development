@@ -8,19 +8,26 @@ import axios from "axios";
 function Signup() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
 
   const handleSignup = async () => {
     try {
-      const response = await axios.post("http://localhost:5000/users", {
+      const response = await axios.post("http://localhost:8080/users", {
         name,
         email,
+        phone,
         password,
       });
+
       if (response.status === 201) {
-        alert("Signed up!");
+        // Store user details in localStorage
+        localStorage.setItem("userDetails", JSON.stringify({ name, email, phone, password }));
+
+        // Redirect to Settings page
+        navigate("/settings");
       }
     } catch (error) {
       console.error("There was an error signing up!", error);
@@ -92,6 +99,15 @@ function Signup() {
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          fullWidth
+          margin="normal"
+          variant="outlined"
+        />
+        <TextField
+          label="Phone Number"
+          type="text"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
           fullWidth
           margin="normal"
           variant="outlined"

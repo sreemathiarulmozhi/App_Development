@@ -1,15 +1,36 @@
-// Menu.jsx
 import React, { useState, useEffect } from "react";
 import "./Nav.css";
 import { NavLink } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import { Menu as MuiMenu, MenuItem, IconButton } from "@mui/material";
 
 const Menu = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const toggleNav = () => {
     setToggleMenu(!toggleMenu);
+  };
+
+  const handleMenuClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleLoginSignup = () => {
+    setIsLoggedIn(true);
+    handleMenuClose();
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    handleMenuClose();
   };
 
   useEffect(() => {
@@ -63,16 +84,6 @@ const Menu = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/login">
-                  <button className="Button">Login</button>
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/signup">
-                  <button className="Button">Signup</button>
-                </NavLink>
-              </li>
-              <li>
                 <NavLink to="/adopt">
                   <button className="Button">Adopt Your Pet</button>
                 </NavLink>
@@ -84,6 +95,36 @@ const Menu = () => {
               </li>
             </ul>
           )}
+          <IconButton onClick={handleMenuClick}>
+            <AccountCircleIcon fontSize="large" style={{ color: "white" }} />
+          </IconButton>
+
+          <MuiMenu
+            anchorEl={anchorEl}
+            open={Boolean(anchorEl)}
+            onClose={handleMenuClose}
+          >
+            {isLoggedIn ? (
+              <>
+                <MenuItem onClick={handleMenuClose}>
+                  <NavLink to="/settings">Settings</NavLink>
+                </MenuItem>
+                <MenuItem onClick={handleLogout}>Logout</MenuItem>
+              </>
+            ) : (
+              <>
+                <MenuItem onClick={handleMenuClose}>
+                  <NavLink to="/login" onClick={handleLoginSignup}>Login</NavLink>
+                </MenuItem>
+                <MenuItem onClick={handleMenuClose}>
+                  <NavLink to="/signup" onClick={handleLoginSignup}>Signup</NavLink>
+                </MenuItem>
+                <MenuItem onClick={handleMenuClose}>
+                  <NavLink to="/settings">Settings</NavLink>
+                </MenuItem>
+              </>
+            )}
+          </MuiMenu>
           <button onClick={toggleNav} className="ham">
             <MenuIcon />
           </button>

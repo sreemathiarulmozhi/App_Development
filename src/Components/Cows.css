@@ -1,66 +1,80 @@
-/* Main.css */
-
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-  }
-  
-  header {
-    background: #f4f4f4;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  header h1 {
-    margin: 0;
-  }
-  
-  main {
-    padding: 20px;
-  }
-  
-  .pet-cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-  }
-  
-  .pet-card {
-    background: #fff;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 10px;
-    padding: 20px;
-    width: 300px;
-    text-align: center;
-  }
-  
-  .pet-image {
-    border-radius: 50%;
-  }
-  
-  .pet-card h2 {
-    font-size: 1.5em;
-    margin: 0.5em 0;
-  }
-  
-  .pet-card p {
-    text-align: left;
-  }
-  
-  .highlight {
-    font-style: italic;
-    font-weight: bold;
-    text-decoration: underline;
-  }
-  
-  footer {
-    background: #f4f4f4;
-    padding: 10px;
-    text-align: center;
-  }
-  
-  footer p {
-    margin: 0;
-  }
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: #f4f4f4;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2em;
+}
+
+main {
+  padding: 20px;
+}
+
+.pet-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.pet-card {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  padding: 20px;
+  width: calc(33% - 40px); /* Responsive card width */
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.pet-card:hover {
+  transform: scale(1.05);
+}
+
+.pet-image {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.pet-card h2 {
+  font-size: 1.5em;
+  margin: 0.5em 0;
+}
+
+.pet-card p {
+  text-align: left;
+}
+
+.highlight {
+  font-style: italic;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+footer {
+  background: #f4f4f4;
+  padding: 10px;
+  text-align: center;
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.9em;
+}
