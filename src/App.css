@@ -56,6 +56,9 @@ body {
   background-color: var(--background-color);
   color: var(--text-color);
 }
+.App iframe {
+  max-width: 100%;
+  height: auto;
+}
 
-/* Add any additional dark mode styles as needed */
 

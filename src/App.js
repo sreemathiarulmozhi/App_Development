@@ -7,7 +7,6 @@ import Service from "./Components/Service";
 import PetShop from "./Components/PetShop";
 import Login from "./Components/Login";
 import Signup from "./Components/Signup";
-import "./App.css";
 import Cows from "./Components/Cows";
 import Cats from "./Components/Cats";
 import Birds from "./Components/Birds";
@@ -20,8 +19,10 @@ import Petopia from "./Components/Petopia";
 import Cart from "./Components/Cart";
 import Payment from "./Components/Payment";
 import Donate from "./Components/Donate";
-import Settings from "./Components/Settings"; // Import the Settings component
+import Settings from "./Components/Settings";
+import MapComponent from "./Components/MapComponent"; 
 import { CartProvider } from "./CartContext";
+import "./App.css";
 
 function App() {
   return (
@@ -48,8 +49,8 @@ function App() {
             <Route path="/petopia" element={<Petopia name="Petopia" />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/payment" element={<Payment />} />
-            <Route path="/settings" element={<Settings />} />{" "}
-            {/* Added Settings route */}
+            <Route path="/settings" element={<Settings />} />
+            <Route path="/map" element={<MapComponent />} /> 
           </Routes>
         </CartProvider>
       </BrowserRouter>

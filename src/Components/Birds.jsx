@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import "./Birds.css"; // Make sure to create or update this CSS file for styling
-
+import "./Birds.css"; 
 const Modal = ({ show, onClose, birdName }) => {
   if (!show) return null;
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Petopia.css";
-import { useCart } from "../CartContext"; // Assuming you have a CartContext
+import { useCart } from "../CartContext"; 
 import { ShoppingCart } from "@mui/icons-material";
 
 const Petopia = () => {

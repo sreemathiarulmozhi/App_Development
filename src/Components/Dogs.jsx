@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Dogs.css"; // Make sure to create or update this CSS file for styling
+import "./Dogs.css"; 
 
 const Modal = ({ show, onClose, dogName }) => {
   if (!show) return null;

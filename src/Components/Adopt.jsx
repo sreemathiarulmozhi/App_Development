@@ -1,23 +1,65 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import "./Adopt.css"; // Import the CSS file for styling
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import MapComponent from './MapComponent'; 
+import './Adopt.css'; 
+
+const districtCoordinates = {
+  Chennai: [13.0827, 80.2707],
+Coimbatore: [11.0168, 76.9558],
+Madurai: [9.9252, 78.1198],
+Trichy : [10.7905, 78.7047],
+Salem: [11.6634, 78.1542],
+Tirunelveli: [8.7104, 77.7499],
+Vellore: [12.9165, 79.1324],
+Kancheepuram: [12.8316, 79.7063],
+Tirupur: [11.3412, 77.3381],
+Nagapattinam: [10.7641, 79.8284],
+Dharmapuri: [12.1141, 78.0134],
+Cuddalore: [11.7511, 79.4641],
+Karur: [10.9646, 78.0847],
+Perambalur: [11.2132, 78.5728],
+Pudukkottai: [10.3663, 78.7650],
+Thanjavur: [10.7905, 79.1390],
+Dindigul: [10.3618, 77.9812],
+Erode: [11.3412, 77.7174],
+Tiruvannamalai: [12.2324, 79.0661],
+Tiruchirapalli: [10.7905, 78.7047],
+Kanyakumari: [8.0892, 77.5385],
+Nilgiris: [11.4042, 76.6933],
+Ramanathapuram: [9.3550, 78.5670],
+Sivagangai: [9.6953, 78.6464],
+Tiruvarur: [10.8061, 79.4121],
+Theni: [10.0178, 77.4380],
+Vellore: [12.9165, 79.1324],
+Virudhunagar: [9.6767, 77.9942],
+Kallakurichi: [11.9016, 78.8950],
+Ariyalur: [11.1276, 78.6696],
+Chengalpattu: [12.7611, 80.0360],
+Kanchipuram: [12.8316, 79.7063],
+Tirupattur: [12.2574, 78.7460],
+Tiruvallur: [13.1584, 79.8811],
+Karaikal: [10.9270, 79.8320],
+Cuddalore: [11.7511, 79.4641],
+Namakkal: [11.2024, 78.1758],
+Vellore: [12.9165, 79.1324]
+};
 
 const Adopt = () => {
   const [formData, setFormData] = useState({
-    name: "",
-    age: "",
-    email: "",
-    salary: "",
-    address: "",
-    pincode: "",
-    district: "",
-    state: "",
-    adoptionEnquiries: "",
-    agency: "",
+    name: '',
+    age: '',
+    email: '',
+    salary: '',
+    address: '',
+    pincode: '',
+    district: '',
+    state: '',
+    adoptionEnquiries: '',
+    agency: '',
   });
-  const [agencies, setAgencies] = useState([]); // State to store filtered agencies
-  const navigate = useNavigate(); // Get the navigate function
-
+  const [agencies, setAgencies] = useState([]); 
+  const [selectedDistrict, setSelectedDistrict] = useState(null);
+  const navigate = useNavigate(); 
   const allAgencies = [
     { name: "Blue Cross of India", district: "Chennai" },
     { name: "Theosophical Society Animal Welfare", district: "Chennai" },
@@ -103,32 +145,33 @@ const Adopt = () => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
 
-    if (name === "district") {
-      // Filter agencies based on selected district
+    if (name === 'district') {
       const filteredAgencies = allAgencies.filter(
         (agency) => agency.district === value
       );
       setAgencies(filteredAgencies);
+      setSelectedDistrict(value);
     }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form Data Submitted:", formData);
+    console.log('Form Data Submitted:', formData);
     setFormData({
-      name: "",
-      age: "",
-      email: "",
-      salary: "",
-      address: "",
-      pincode: "",
-      district: "",
-      state: "",
-      adoptionEnquiries: "",
-      agency: "",
+      name: '',
+      age: '',
+      email: '',
+      salary: '',
+      address: '',
+      pincode: '',
+      district: '',
+      state: '',
+      adoptionEnquiries: '',
+      agency: '',
     });
-    setAgencies([]); // Reset agencies
-    navigate("/thank-you"); // Redirect to Thank You page
+    setAgencies([]); 
+    setSelectedDistrict(null);
+    navigate('/thank-you');
   };
 
   return (
@@ -250,44 +293,15 @@ const Adopt = () => {
             <option value="Virudhunagar">Virudhunagar</option>
           </select>
         </div>
-        <div className="form-group">
-          <label>State:</label>
-          <input
-            type="text"
-            name="state"
-            value={formData.state}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label>Adoption Enquiries:</label>
-          <textarea
-            name="adoptionEnquiries"
-            value={formData.adoptionEnquiries}
-            onChange={handleChange}
-            required
-          ></textarea>
-        </div>
-        <div className="form-group">
-          <label>Agency:</label>
-          <select
-            name="agency"
-            value={formData.agency}
-            onChange={handleChange}
-            required
-          >
-            <option value="">Select Agency</option>
-            {agencies.map((agency, index) => (
-              <option key={index} value={agency.name}>
-                {agency.name}
-              </option>
-            ))}
-          </select>
-        </div>
         <button type="submit">Submit</button>
       </form>
-      <p className="contact-us">For enquiries, please contact us.</p>
+
+      {selectedDistrict && (
+        <MapComponent
+          center={districtCoordinates[selectedDistrict]}
+          district={selectedDistrict}
+        />
+      )}
     </div>
   );
 };

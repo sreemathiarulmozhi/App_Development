@@ -17,24 +17,24 @@ const styles = {
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    height: "100vh", // Full viewport height
+    height: "100vh", 
     textAlign: "center",
-    backgroundColor: "#f8f8f8", // Light background color
+    backgroundColor: "#f8f8f8",
     padding: "20px",
     boxSizing: "border-box",
     backgroundImage: 'url("https://www.livinghouse.ca/shared/media/blog/46/image-1683906941.jpg")', // URL of the background image
-    backgroundSize: "cover", // Cover the entire container
-    backgroundPosition: "center", // Center the background image
-    backgroundRepeat: "no-repeat", // Do not repeat the image
+    backgroundSize: "cover", 
+    backgroundPosition: "center", 
+    backgroundRepeat: "no-repeat",
   },
   heading: {
     color: "black",
     marginBottom: "20px",
-    fontSize: "36px", // Increased font size for the heading
+    fontSize: "36px",
   },
   paragraph: {
     color: "black",
-    fontSize: "24px", // Increased font size for the paragraph
+    fontSize: "24px", 
   },
 };
 

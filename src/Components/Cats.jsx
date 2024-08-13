@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Cats.css"; // Make sure to create or update this CSS file for styling
+import "./Cats.css"; 
 
 const Modal = ({ show, onClose, catName }) => {
   if (!show) return null;

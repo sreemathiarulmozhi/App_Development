@@ -23,10 +23,7 @@ function Signup() {
       });
 
       if (response.status === 201) {
-        // Store user details in localStorage
         localStorage.setItem("userDetails", JSON.stringify({ name, email, phone, password }));
-
-        // Redirect to Settings page
         navigate("/settings");
       }
     } catch (error) {
@@ -51,10 +48,10 @@ function Signup() {
       width: "100%",
       height: "100%",
       objectFit: "cover",
-      zIndex: -1, // Place it behind the content
+      zIndex: -1,
     },
     container: {
-      backgroundColor: "rgba(255, 255, 255, 0.8)", // Ensuring white background for the signup box
+      backgroundColor: "rgba(255, 255, 255, 0.8)",
       padding: "20px",
       borderRadius: "8px",
       boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
@@ -132,13 +129,13 @@ function Signup() {
         </Button>
         <Box style={styles.iconContainer}>
           <IconButton
-            style={{ color: "#DB4437" }} // Google color
+            style={{ color: "#DB4437" }}
             onClick={() => alert("Sign up with Google")}
           >
             <GoogleIcon />
           </IconButton>
           <IconButton
-            style={{ color: "#4a3929" }} // Brown color for Microsoft icon
+            style={{ color: "#4a3929" }}
             onClick={() => alert("Sign up with Microsoft")}
           >
             <MicrosoftIcon />
@@ -147,8 +144,8 @@ function Signup() {
         <Typography variant="body2" style={{ marginTop: "20px" }}>
           Already have an account?{" "}
           <span
-            onClick={() => navigate("/login")} // Navigate to the login page
-            style={{ color: "#4a3929", cursor: "pointer" }} // Brown color for the Login link
+            onClick={() => navigate("/login")}
+            style={{ color: "#4a3929", cursor: "pointer" }}
           >
             Login here
           </span>

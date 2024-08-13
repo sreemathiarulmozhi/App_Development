@@ -21,15 +21,12 @@ const Settings = () => {
   }, []);
 
   const handleLogout = () => {
-    // Clear user details from localStorage
     localStorage.removeItem("userDetails");
 
-    // Redirect to Login page
     navigate("/login");
   };
 
   const handleSave = () => {
-    // Add logic to save changes if necessary
     navigate("/");
   };
 
@@ -50,7 +47,7 @@ const Settings = () => {
           variant="outlined"
           fullWidth
           margin="normal"
-          InputProps={{ readOnly: true }} // Make fields read-only
+          InputProps={{ readOnly: true }} 
         />
         <TextField
           label="Email"
@@ -58,7 +55,7 @@ const Settings = () => {
           variant="outlined"
           fullWidth
           margin="normal"
-          InputProps={{ readOnly: true }} // Make fields read-only
+          InputProps={{ readOnly: true }}
         />
         <TextField
           label="Phone Number"
@@ -66,7 +63,7 @@ const Settings = () => {
           variant="outlined"
           fullWidth
           margin="normal"
-          InputProps={{ readOnly: true }} // Make fields read-only
+          InputProps={{ readOnly: true }}
         />
         <TextField
           label="Password"
@@ -75,7 +72,7 @@ const Settings = () => {
           variant="outlined"
           fullWidth
           margin="normal"
-          InputProps={{ readOnly: true }} // Make fields read-only
+          InputProps={{ readOnly: true }} 
         />
         <div className="password-options">
           <Button variant="text" color="primary">

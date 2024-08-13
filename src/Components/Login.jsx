@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios"; // Import Axios
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Button, TextField, Box, Typography, IconButton } from "@mui/material";
 import GoogleIcon from "@mui/icons-material/Google";
@@ -15,19 +15,18 @@ function Login() {
     axios.post('/api/auth/login', { email, password })
       .then(response => {
         alert(response.data);
-        navigate('/home'); // Redirect after successful login
+        navigate('/home'); 
       })
       .catch(error => {
         if (error.response) {
-          // The request was made and the server responded with a status code outside of the range of 2xx
           console.log('Error Response:', error.response.data);
           alert('Login failed: ' + error.response.data);
         } else if (error.request) {
-          // The request was made but no response was received
+
           console.log('Error Request:', error.request);
           alert('Login failed: No response from server');
         } else {
-          // Something happened in setting up the request that triggered an Error
+          
           console.log('Error Message:', error.message);
           alert('Login failed: ' + error.message);
         }

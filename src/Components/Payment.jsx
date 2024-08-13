@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Typography } from "@mui/material";
-import "./Payment.css"; // Import the CSS file
-import { useCart } from "../CartContext"; // Import your CartContext if applicable
+import "./Payment.css";
+import { useCart } from "../CartContext";
 
 const Payment = () => {
-  const { cart } = useCart(); // Access cart data from context
+  const { cart } = useCart();
   const [paymentMethod, setPaymentMethod] = useState("creditCard");
   const [cardNumber, setCardNumber] = useState("");
   const [expiryDate, setExpiryDate] = useState("");
@@ -15,10 +15,8 @@ const Payment = () => {
   const [googlePayId, setGooglePayId] = useState("");
   const [showSuccess, setShowSuccess] = useState(false);
 
-  // Convert cart object to array
   const cartItems = Object.values(cart);
 
-  // Calculate total cost
   const totalCost = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
   const handlePayment = () => {
@@ -60,7 +58,6 @@ const Payment = () => {
       }
     }
 
-    // Simulate payment processing
     setShowSuccess(true);
   };
 

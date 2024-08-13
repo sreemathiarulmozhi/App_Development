@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Typography } from "@mui/material";
-import "./Donate.css"; // Import the CSS file
+import "./Donate.css"; 
 
 const Donate = () => {
   const upiLogo =
@@ -19,7 +19,6 @@ const Donate = () => {
   const [googlePayId, setGooglePayId] = useState("");
 
   const handlePayment = () => {
-    // Validate input values before processing payment
     if (!isValidEmail(email)) {
       alert("Invalid email address");
       return;
@@ -62,7 +61,6 @@ const Donate = () => {
       }
     }
 
-    // Process payment logic here
     console.log("Processing payment with:", {
       email,
       paymentMethod,

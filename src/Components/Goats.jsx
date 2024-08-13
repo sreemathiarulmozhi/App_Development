@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./Goats.css";
 
-// Modal Component
 const Modal = ({ show, onClose, goatName }) => {
   if (!show) return null;
 

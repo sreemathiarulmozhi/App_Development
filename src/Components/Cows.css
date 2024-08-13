@@ -36,7 +36,7 @@ main {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin: 10px;
   padding: 20px;
-  width: calc(33% - 40px); /* Responsive card width */
+  width: calc(33% - 40px);
   text-align: center;
   transition: transform 0.2s;
 }

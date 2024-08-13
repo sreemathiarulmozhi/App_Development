@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Fish.css"; // Ensure this CSS file is properly created and styled
+import "./Fish.css";
 
 const Modal = ({ show, onClose, fishName }) => {
   if (!show) return null;
@@ -33,7 +33,6 @@ const Fish = () => {
       </header>
       <main>
         <section className="pet-cards">
-          {/* Card 1 */}
           <div className="pet-card">
             <img
               src="https://www.taiyogroup.in/wp-content/uploads/2022/05/Goldfish.jpg" // Replace with actual image URL
@@ -73,7 +72,6 @@ const Fish = () => {
             </button>
           </div>
 
-          {/* Card 2 */}
           <div className="pet-card">
             <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9_Po26e-mjQ2AFmOKUQ1fKaOYdLeWcD-TLg&s" // Replace with actual image URL
@@ -110,7 +108,6 @@ const Fish = () => {
             </button>
           </div>
 
-          {/* Card 3 */}
           <div className="pet-card">
             <img
               src="https://www.shutterstock.com/image-photo/portrait-zebra-angelfish-tank-fish-600nw-2270803133.jpg" // Replace with actual image URL
@@ -150,7 +147,6 @@ const Fish = () => {
             </button>
           </div>
 
-          {/* Card 4 */}
           <div className="pet-card">
             <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFVloxqxXWR41jbZlsroih4lCEmGCSa_BcSA&s" // Replace with actual image URL
@@ -190,7 +186,6 @@ const Fish = () => {
             </button>
           </div>
 
-          {/* Card 5 */}
           <div className="pet-card">
             <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROwTm85_s5_CUlpGt8ECbc4wfF4kB_Ce5W9A&s" // Replace with actual image URL
@@ -232,8 +227,6 @@ const Fish = () => {
             </button>
           </div>
 
-          {/* Additional Fish Cards */}
-          {/* Card 6 */}
           <div className="pet-card">
             <img
               src="https://i.etsystatic.com/7680978/r/il/4e2449/4664076957/il_570xN.4664076957_5o0z.jpg" // Replace with actual image URL
@@ -271,8 +264,6 @@ const Fish = () => {
               Click to adopt me!
             </button>
           </div>
-
-          {/* Card 7 */}
           <div className="pet-card">
             <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVubSFGz2WWXbpyuFA9EbNH9-LNdyQM-HqDQ&s" // Replace with actual image URL
@@ -314,7 +305,6 @@ const Fish = () => {
             </button>
           </div>
 
-          {/* Card 8 */}
           <div className="pet-card">
             <img
               src="https://cdn.shopify.com/s/files/1/0311/3149/files/Albino_Tiger_Oscar_-_Astronotus_ocellatus.jpg?v=1663363974" // Replace with actual image URL
@@ -354,7 +344,6 @@ const Fish = () => {
             </button>
           </div>
 
-          {/* Card 9 */}
           <div className="pet-card">
             <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeCG3rqrjtzU-1B-aFrec_QkhA_ZI41050NA&s" // Replace with actual image URL
@@ -392,8 +381,6 @@ const Fish = () => {
               Click to adopt me!
             </button>
           </div>
-
-          {/* Card 10 */}
           <div className="pet-card">
             <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDX1tjAV3kPyEJZabUzrqrzS3PKjoL_QObqQ&s" // Replace with actual image URL

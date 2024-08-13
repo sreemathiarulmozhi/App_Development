@@ -22,7 +22,6 @@ const Cart = () => {
   };
 
   const handlePaymentClick = () => {
-    // Retrieve user details from localStorage
     const storedDetails = localStorage.getItem("userDetails");
 
     if (!storedDetails) {

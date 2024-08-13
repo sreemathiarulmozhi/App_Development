@@ -1,8 +1,8 @@
 .Service-sec {
   position: relative;
   width: 100%;
-  height: 100vh; /* Ensure full viewport height */
-  overflow: hidden; /* Ensure video doesn't overflow */
+  height: 100vh;
+  overflow: hidden;
 }
 
 .Service-wrapper {
@@ -29,8 +29,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.178); /* Teal overlay for better text contrast */
-  z-index: -1; /* Place it behind the content */
+  background: rgba(255, 255, 255, 0.178);
+  z-index: -1; 
 }
 
 .main-div {
@@ -38,8 +38,8 @@
   padding: 50px;
   opacity: 1;
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.208); /* Light background for readability */
-  color: #000000; /* Text color to black */
+  background: rgba(255, 255, 255, 0.208);
+  color: #000000;
 }
 
 .sec-h2 {
@@ -49,21 +49,21 @@
   letter-spacing: 5px;
   word-spacing: 5px;
   margin-bottom: 50px;
-  color: #ffffff; /* Changed color to white for visibility */
+  color: #ffffff;
 }
 
 .main-heading {
   display: flex;
   margin-top: 30px;
   padding: 20px 0 20px 20px;
-  background: rgba(152, 110, 2, 0.3); /* Teal color for headings */
+  background: rgba(152, 110, 2, 0.3);
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.16) 0 1px 4px;
 }
 
 .main-heading h3 {
   margin-left: 30px;
-  color: #ffffff; /* Changed text color to white */
+  color: #ffffff;
   word-spacing: 1px;
   letter-spacing: 1px;
   font-weight: 600;
@@ -86,26 +86,24 @@
   word-spacing: 2px;
   font-weight: 400;
   line-height: 1.7;
-  color: #ffffff; /* Changed text color to white */
+  color: #ffffff; 
 }
 
 .service-h2 {
   margin: 3rem 0 0 0;
 }
-
-/* Styles for the upload button */
 .upload-pet-button {
   position: absolute;
   top: 20px;
   right: 20px;
   padding: 10px 20px;
-  background-color: #070303; /* Teal color for button */
+  background-color: #070303;
   color: #ffffff;
   border: none;
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
-  z-index: 10; /* Ensure button is above other elements */
+  z-index: 10;
 }
 
 @media (max-width: 1280px) {
@@ -118,21 +116,21 @@ upload-pet-button {
   top: 20px;
   right: 20px;
   padding: 10px 20px;
-  background-color: #e6e6fa; /* Lavender color for button */
-  color: #4b0082; /* Darker shade of lavender for text */
+  background-color: #e6e6fa; 
+  color: #4b0082;
   border: none;
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
-  z-index: 10; /* Ensure button is above other elements */
+  z-index: 10;
 }
 
 .file-upload {
-  display: none; /* Hide the default file input */
+  display: none; 
 }
 
 .uploaded-files {
-  margin-top: 80px; /* Space below the button */
+  margin-top: 80px;
 }
 
 .uploaded-files ul {
@@ -142,7 +140,7 @@ upload-pet-button {
 
 .uploaded-files li {
   margin-bottom: 10px;
-  color: #4b0082; /* Darker shade of lavender for file names */
+  color: #4b0082;
 }
 
 @media (max-width: 1280px) {
@@ -153,9 +151,9 @@ upload-pet-button {
 .donate-button {
   position: absolute;
   top: 20px;
-  right: 150px; /* Adjust based on available space */
+  right: 150px; 
   padding: 10px 20px;
-  background-color: #4b0082; /* Darker shade of lavender */
+  background-color: #4b0082; 
   color: #ffffff;
   border: none;
   border-radius: 5px;

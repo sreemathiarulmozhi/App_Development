@@ -1,5 +1,4 @@
 import React from "react";
-import PetCard from "./PetCard";
 import "./PetShop.css";
 
 const PetShop = () => (
@@ -18,8 +17,6 @@ const PetShop = () => (
       <br></br>
       <br></br>
       <br></br>
-      {/* <br></br>
-      <br></br> */}
       <h2 className="browse-pets-heading">Browse Pets</h2>
       <div className="pet-links">
         <div className="pet-item">
