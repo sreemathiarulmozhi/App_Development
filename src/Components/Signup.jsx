@@ -75,8 +75,8 @@ function Signup() {
     <div style={styles.page}>
       <video autoPlay muted loop style={styles.video}>
         <source
-          src="https://videos.pexels.com/video-files/10211383/10211383-uhd_2732_1440_30fps.mp4"
-          type="video/mp4"
+        src="https://cdn.pixabay.com/video/2021/11/06/94787-643084532_tiny.mp4"
+        type="video/mp4"
         />
         Your browser does not support the video tag.
       </video>

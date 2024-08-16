@@ -1,17 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 
-.h-wrapper {
-  background: #4a3929;
-  color: white;
+.app-bar {
+  background: linear-gradient(135deg, #3e2f2f, #5a4737); /* Gradient from dark to medium earthy brown */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
-.h-container {
+.toolbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
-  color: rgba(255, 255, 255, 0.78);
-  height: 150px;
 }
 
 .logo-container {
@@ -19,100 +20,50 @@
   align-items: center;
 }
 
-.doggo {
+.logo {
+  width: 40px;
   margin-right: 10px;
 }
 
-.logo-text h3 {
+.logo-text {
   font-family: 'Fredoka One', cursive;
-  font-size: 24px; 
-  margin: 0;
+  color: #e2c19a; /* Light beige for contrast */
 }
 
-.h-menu {
+.account-icon {
+  color: #e2c19a; /* Light beige */
+}
+
+.drawer {
+  width: 250px;
+}
+
+.drawer-header {
   display: flex;
-  align-items: center;
-  gap: 2rem;
-  flex-grow: 1;
+  justify-content: flex-end;
+  padding: 10px;
 }
 
-.h-menu > *:hover {
-  cursor: pointer;
+.drawer-list {
+  width: 250px;
+  background: linear-gradient(135deg, #4a362d, #7f5e4f); /* Gradient from medium to warm earthy brown */
+  height: 100%;
 }
 
-.nav-list {
-  list-style-type: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-  padding: 0;
+.drawer-list .MuiListItemIcon-root {
+  color: #e2c19a; /* Light beige */
 }
 
-.nav-list li {
-  margin-right: 20px;
-  color: #f1f1f1;
-}
-
-.nav-list a {
-  text-decoration: none;
-  color: inherit;
+.drawer-list .MuiListItemText-primary {
   font-family: 'Fredoka One', cursive;
-  font-size: 18px;
+  color: #e2c19a; /* Light beige */
 }
 
-.nav-list button {
-  background: none;
-  border: none;
-  font-family: 'Fredoka One', cursive;
-  color: inherit;
-  font-size: 18px;
-  cursor: pointer;
+.drawer-list .MuiListItem-root:hover {
+  background-color: #5a4737; /* Slightly darker brown with gradient context */
 }
 
-.active_class {
-  color: rgb(107, 107, 205);
-}
-
-.ham {
-  display: none;
-  background: none;
-  border: none;
+.drawer-list .MuiListItem-root.active {
+  background-color: #7f5e4f; /* Warm brown for active state */
   color: white;
-  cursor: pointer;
-}
-
-@media screen and (max-width: 500px) {
-  .nav-list {
-    flex-direction: column;
-    position: absolute;
-    top: 50px;
-    right: 20px;
-    background: #2d2a30;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 5px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    width: auto;
-    padding: 0;
-  }
-
-  .nav-list li {
-    width: 100%;
-    border-top: 1px solid rgba(255, 255, 255, 0.555);
-    text-align: center;
-    margin: 0;
-    padding: 20px 0;
-  }
-
-  .ham {
-    display: block;
-  }
-
-  .nav-list.hide {
-    display: none;
-  }
-
-  .nav-list.show {
-    display: flex;
-  }
 }

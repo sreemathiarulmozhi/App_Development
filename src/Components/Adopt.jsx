@@ -178,12 +178,12 @@ const Adopt = () => {
     <div className="adoption-form-container">
       <video autoPlay muted loop id="bg-video">
         <source
-          src="https://cdn.pixabay.com/video/2022/11/22/140111-774507949_large.mp4"
+          src="https://assets.mixkit.co/videos/42745/42745-720.mp4"
           type="video/mp4"
         />
         Your browser does not support the video tag.
       </video>
-      <h2>Adoption Form</h2>
+      <h2>Adopt your Pawfect Companion</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Name:</label>

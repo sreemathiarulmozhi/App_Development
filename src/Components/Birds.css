@@ -1,64 +1,93 @@
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-  }
-  
-  header {
-    background: #f4f4f4;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  header h1 {
-    margin: 0;
-  }
-  
-  main {
-    padding: 20px;
-  }
-  
-  .pet-cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-  }
-  
-  .pet-card {
-    background: #fff;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 10px;
-    padding: 20px;
-    width: 300px;
-    text-align: center;
-  }
-  
-  .pet-image {
-    border-radius: 50%;
-  }
-  
-  .pet-card h2 {
-    font-size: 1.5em;
-    margin: 0.5em 0;
-  }
-  
-  .pet-card p {
-    text-align: left;
-  }
-  
-  .highlight {
-    font-style: italic;
-    font-weight: bold;
-    text-decoration: underline;
-  }
-  
-  footer {
-    background: #f4f4f4;
-    padding: 10px;
-    text-align: center;
-  }
-  
-  footer p {
-    margin: 0;
-  }
+.bird-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 16px;
+  justify-content: center; /* Centers the gallery content */
+}
+
+.bird-card {
+  background-color: #f9f9f9; /* Adjust as needed */
+  border: 1px solid #ddd; /* Adjust as needed */
+  border-radius: 8px;
+  width: calc(33.333% - 16px); /* 3 cards per row, accounting for gaps */
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 100%; /* Ensure all cards are of equal height */
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  padding-top: 100%; /* 1:1 aspect ratio for a square */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.more-info {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  text-align: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.image-container:hover .more-info {
+  opacity: 1;
+}
+
+.bird-info {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1; /* Ensures that the info section grows to fill available space */
+}
+
+.bird-info h3 {
+  margin: 10px 0;
+  font-size: 18px;
+  flex-grow: 1; /* Allows the title to take up space */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.adopt-button {
+  background-color: #4caf50; /* Adjust as needed */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+  flex-shrink: 0; /* Prevents the button from shrinking */
+}
+
+.adopt-button:hover {
+  background-color: #45a049; /* Adjust as needed */
+}

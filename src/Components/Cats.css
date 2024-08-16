@@ -1,121 +1,130 @@
-.cats-page main {
-    background-image: url('https://images.pexels.com/photos/7042926/pexels-photo-7042926.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    padding: 20px;
-  }
-  
-  .cats-page .pet-card {
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    padding: 15px;
-    margin-bottom: 20px;
-  }
-  .cats-page header {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #333;
-    font-family: 'Arial', sans-serif;
-  }
-  
-  .cats-page h1 {
-    font-size: 2.5rem;
-    margin: 0;
-  }
-  
-  .cats-page .pet-image {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-  }
-  
-  .cats-page .highlight {
-    font-weight: bold;
-    color: #115011; 
-  }
-  
-  .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7); 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    transition: opacity 0.3s ease;
-  }
-  
-  .modal-content {
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    width: 90%;
-    max-width: 600px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
-    transform: translateY(-20px);
-  }
-  
-  .modal-content.show {
-    transform: translateY(0);
-  }
-  
-  .close-button {
-    background: #e74c3c;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background 0.3s ease, transform 0.2s ease;
-  }
-  
-  .close-button:hover {
-    background: #c0392b;
-    transform: scale(1.05);
-  }
-  
-  .close-button:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px #c0392b;
-  }
-  
-  .btn-modal {
-    background: #115011;
-    color: white;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background 0.3s ease, transform 0.2s ease;
-  }
-  
-  .btn-modal:hover {
-    background: #115011;
-    transform: scale(1.05);
-  }
-  
-  .btn-modal:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px #115011;
-  }
-  
-  @media (max-width: 768px) {
-    .modal-content {
-      width: 95%;
-    }
-  
-    .btn-modal {
-      width: 100%;
-      padding: 12px;
-      font-size: 18px;
-    }
-  }
+/* Cats.css */
+
+.cat-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+  background-color: #f8f8f8;
+}
+
+.cat-card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.cat-card:hover {
+  transform: scale(1.02);
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.cat-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.more-info {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  display: block; /* Always visible */
+}
+
+.cat-info {
+  padding: 15px;
+  text-align: center;
+}
+
+.cat-info h3 {
+  margin: 10px 0;
+  font-size: 20px;
+  color: #333;
+}
+
+.adopt-button {
+  background-color: #4CAF50;
+  color: #ffffff;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-decoration: none;
+}
+
+.adopt-button:hover {
+  background-color: #45a049;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 600px;
+  text-align: left;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  font-size: 24px;
+  color: #333;
+}
+
+.modal-content p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.highlight {
+  font-weight: bold;
+  color: #4CAF50;
+}
+
+.modal-close-button {
+  background-color: #f44336;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.modal-close-button:hover {
+  background-color: #d32f2f;
+}

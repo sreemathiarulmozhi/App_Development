@@ -1,222 +1,117 @@
-.Shop {
-  background: radial-gradient(
-    circle at 10% 20%,
-    rgb(251, 222, 238) 15.6%,
-    rgb(206, 201, 226) 80.3%
-  );
-  margin: 3rem 0;
-}
-.PetShop-heading {
-  text-align: center;
-  animation: animate 1.5s linear infinite;
-}
-@keyframes animate {
-  0% {
-    opacity: 0;
-  }
-
-  50% {
-    opacity: 0.9;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-.cards {
-  width: 100%;
-  height: auto;
-}
-.card {
-  margin: 6%;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
-  background-color: #d2bcbc;
-  width: 21.25%;
-  border-radius: 12px;
-  box-shadow: 0 13px 10px -7px rgba(165, 41, 41, 0.1);
-  float: left;
-}
-.card:hover {
-  box-shadow: 10px 30px 18px -8px rgba(0, 0, 0, 0.5);
-}
-.card_img {
-  width: 100%;
-  height: 235px;
-  object-fit: fill;
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
-}
-.card_info {
-  background-color: #d2bcbc;
-  border-bottom-left-radius: 12px;
-  padding: 16px 24px 24px 24px;
-}
-.Dog_name {
-  text-transform: uppercase;
-  font-size: 13px;
-  letter-spacing: 2px;
-  font-weight: 500;
-  color: rgb(93, 14, 14);
-  background-color: #d2bcbc;
-}
-.Dog_breed {
-  margin: 5px;
-  margin-bottom: 10px;
-  background-color: #d2bcbc;
-  text-transform: capitalize;
-}
-.Dog_info {
-  font-size: 1rem;
-  font-weight: 600;
-  text-align: center;
-}
-.btn-modal {
-  width: 100%;
-  margin: 1rem 0;
-  padding: 0.6rem;
-  font-weight: 600;
-  font-size: 1rem;
-  background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
-  border: none;
-  border-radius: 4px;
-  transition: all 300ms ease-in;
-  cursor: pointer;
-  color: rgb(54, 8, 8);
-}
-
-@media (max-width: 768px) {
-  .card {
-    float: none;
-    margin: 5% 5% 15% 15%;
-    width: 60%;
-  }
-}
-body.active-modal {
-  overflow-y: hidden;
-}
-
-.modal,
-.overlay {
-  width: 100vw;
+/* Container for the entire pet shop */
+.pet-shop-container {
+  position: relative;
+  overflow: hidden;
   height: 100vh;
+  width: 100%;
+}
+
+/* Background video styling */
+.background-video {
+  position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  position: fixed;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
 }
 
-.overlay {
-  background: rgba(49, 49, 49, 0.8);
+/* Main content styling */
+.pet-shop-content {
+  position: relative;
+  padding: 2rem;
+  text-align: center;
+  color: #fff;
 }
-.modal-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  line-height: 1.4;
-  background: #f1f1f1;
-  padding: 5rem;
-  border-radius: 3px;
-  width: auto;
-  height: auto;
-  background-color: hsl(34, 86%, 88%, 1);
+
+/* Heading styling */
+.browse-pets-heading {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: #151212;
 }
-.modal-content h2 {
-  color: rgb(162, 52, 70);
-  margin: 1.5rem;
-}
-.modal-content p {
-  margin: 1.5rem;
-}
-.close-modal {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-weight: 500;
-  padding: 0.6rem 1.4rem;
-  background: linear-gradient(97.05deg, #4066ff 3.76%, #2949c6 100%);
-  border: none;
-  border-radius: 4px;
-  transition: all 300ms ease-in;
-}
-.book-modal {
-  padding: 1rem 1.4rem;
-  background: linear-gradient(-225deg, #cbbacc 0%, #2580b3 100%);
-  border: none;
-  border-radius: 4px;
-  transition: all 300ms ease-in;
-  background-color: rgb(78, 78, 141);
-  cursor: pointer;
-  width: 90%;
-  margin: 1.5rem;
-}
-.close-modal:hover {
-  transform: scale(1.05, 1.05);
-}
-.book-modal:hover {
-  transform: scale(1.05, 1.05);
-}
-@media (max-width: 750px) {
-  .modal-content {
-    font-size: 0.8rem;
-    line-height: 1.2;
-    padding: 2rem;
-    width: fit-content;
-  }
-  .book-modal {
-    width: auto;
-  }
-}
+
+/* Container for pet items */
 .pet-links {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
-  gap: 20px; 
+  justify-content: center;
+  gap: 1rem; /* Reduced gap for better alignment */
 }
 
-.browse-pets-heading {
-  color: white;
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
+/* Individual pet item styling */
 .pet-item {
-  text-align: center;
-  overflow: hidden;
+  position: relative;
+  width: 200px; /* Reduced width */
+  height: 200px; /* Reduced height */
   border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+/* Pet image styling */
+.pet-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+}
+
+/* Pet info overlay styling */
+.pet-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 0.5rem;
+  text-align: center;
+  transform: translateY(100%);
   transition: transform 0.3s ease;
 }
 
+/* Pet name styling */
+.pet-name {
+  font-size: 1rem; /* Reduced font size */
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+/* Pet description styling */
+.pet-description {
+  font-size: 0.8rem; /* Reduced font size */
+  margin-bottom: 0.5rem;
+}
+
+/* Explore link styling */
+.pet-link {
+  color: #a0d6a8;
+  font-size: 0.9rem; /* Reduced font size */
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.pet-link:hover {
+  color: #8cbd8f;
+}
+
+/* Hover effect for pet item */
 .pet-item:hover {
   transform: scale(1.05);
 }
 
-.pet-image {
-  display: block;
-  margin: 0 auto 10px; 
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 10px;
-  transition: transform 0.3s ease;
+.pet-item:hover .pet-info {
+  transform: translateY(0);
 }
 
 .pet-item:hover .pet-image {
-  transform: scale(1.1);
-}
-
-.pet-link {
-  display: inline-block;
-  padding: 10px 20px;
-  font-size: 16px;
-  color: #fff;
-  background-color: #0f1010;
-  text-decoration: none;
-  border-radius: 5px;
-}
-
-.pet-link:hover {
-  background-color: #0a121b;
+  opacity: 0.8;
 }

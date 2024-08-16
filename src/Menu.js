@@ -1,21 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./Nav.css";
 import { NavLink } from "react-router-dom";
+import { Drawer, List, ListItem, ListItemIcon, ListItemText, IconButton, Toolbar, AppBar, Menu, MenuItem } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import HomeIcon from "@mui/icons-material/Home";
+import StoreIcon from "@mui/icons-material/Store";
+import ServiceIcon from "@mui/icons-material/Build";
+import ContactMailIcon from "@mui/icons-material/ContactMail";
+import PetsIcon from "@mui/icons-material/Pets";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import { Menu as MuiMenu, MenuItem, IconButton } from "@mui/material";
 
-const Menu = () => {
-  const [toggleMenu, setToggleMenu] = useState(false);
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+const MenuComponent = () => {
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const isMenuOpen = Boolean(anchorEl);
 
-  const toggleNav = () => {
-    setToggleMenu(!toggleMenu);
+  const toggleDrawer = (open) => () => {
+    setIsDrawerOpen(open);
   };
 
-  const handleMenuClick = (event) => {
+  const handleMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
@@ -23,115 +27,76 @@ const Menu = () => {
     setAnchorEl(null);
   };
 
-  const handleLoginSignup = () => {
-    setIsLoggedIn(true);
-    handleMenuClose();
-  };
-
-  const handleLogout = () => {
-    setIsLoggedIn(false);
-    handleMenuClose();
-  };
-
-  useEffect(() => {
-    const changeWidth = () => {
-      setScreenWidth(window.innerWidth);
-    };
-
-    window.addEventListener("resize", changeWidth);
-
-    return () => {
-      window.removeEventListener("resize", changeWidth);
-    };
-  }, []);
+  const menuItems = [
+    { text: "About", icon: <HomeIcon />, path: "/" },
+    { text: "Pet Shop", icon: <StoreIcon />, path: "/pet-shop" },
+    { text: "Services", icon: <ServiceIcon />, path: "/service" },
+    { text: "Contact Us", icon: <ContactMailIcon />, path: "/contact" },
+    { text: "Adopt Your Pet", icon: <PetsIcon />, path: "/adopt" },
+    { text: "Petopia", icon: <PetsIcon />, path: "/petopia" }
+  ];
 
   return (
-    <section className="h-wrapper">
-      <div className="h-container flexCenter paddings innerWidth">
-        <div className="logo-container">
-          <img
-            className="doggo"
-            src="https://www.shutterstock.com/image-vector/vector-pet-care-icon-hands-260nw-1843055236.jpg"
-            alt="logo img"
-            width={30}
-          />
-          <span className="logo-text">
-            <h3>The Paws</h3>
-          </span>
-        </div>
-
-        <div className="flexCenter h-menu">
-          {(toggleMenu || screenWidth >= 500) && (
-            <ul className={`nav-list ${toggleMenu ? "show" : "hide"}`}>
-              <li>
-                <NavLink to="/">
-                  <button className="Button">About</button>
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/pet-shop">
-                  <button className="Button">Pet Shop</button>
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/service">
-                  <button className="Button">Services</button>
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/contact">
-                  <button className="Button">Contact Us</button>
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/adopt">
-                  <button className="Button">Adopt Your Pet</button>
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/petopia">
-                  <button className="Button">Petopia</button>
-                </NavLink>
-              </li>
-            </ul>
-          )}
-          <IconButton onClick={handleMenuClick}>
-            <AccountCircleIcon fontSize="large" style={{ color: "white" }} />
-          </IconButton>
-
-          <MuiMenu
-            anchorEl={anchorEl}
-            open={Boolean(anchorEl)}
-            onClose={handleMenuClose}
-          >
-            {isLoggedIn ? (
-              <>
-                <MenuItem onClick={handleMenuClose}>
-                  <NavLink to="/settings">Settings</NavLink>
-                </MenuItem>
-                <MenuItem onClick={handleLogout}>Logout</MenuItem>
-              </>
-            ) : (
-              <>
-                <MenuItem onClick={handleMenuClose}>
-                  <NavLink to="/login" onClick={handleLoginSignup}>Login</NavLink>
-                </MenuItem>
-                <MenuItem onClick={handleMenuClose}>
-                  <NavLink to="/signup" onClick={handleLoginSignup}>Signup</NavLink>
-                </MenuItem>
-                <MenuItem onClick={handleMenuClose}>
-                  <NavLink to="/settings">Settings</NavLink>
-                </MenuItem>
-              </>
-            )}
-          </MuiMenu>
-          <button onClick={toggleNav} className="ham">
+    <>
+      <AppBar position="static" className="app-bar">
+        <Toolbar className="toolbar">
+          <IconButton edge="start" color="inherit" aria-label="menu" onClick={toggleDrawer(true)}>
             <MenuIcon />
-          </button>
+          </IconButton>
+          <div className="logo-container">
+            <img
+              className="logo"
+              src="https://www.shutterstock.com/image-vector/vector-pet-care-icon-hands-260nw-1843055236.jpg"
+              alt="logo"
+            />
+            <h3 className="logo-text">The Paws</h3>
+          </div>
+          <div className="profile-menu">
+            <IconButton onClick={handleMenuOpen}>
+              <AccountCircleIcon fontSize="large" />
+            </IconButton>
+            <Menu
+              anchorEl={anchorEl}
+              open={isMenuOpen}
+              onClose={handleMenuClose}
+              PaperProps={{
+                style: {
+                  maxHeight: 48 * 4.5,
+                  width: '20ch',
+                },
+              }}
+            >
+              <MenuItem component={NavLink} to="/login" onClick={handleMenuClose}>
+                Login
+              </MenuItem>
+              <MenuItem component={NavLink} to="/signup" onClick={handleMenuClose}>
+                Signup
+              </MenuItem>
+              <MenuItem component={NavLink} to="/settings" onClick={handleMenuClose}>
+                Settings
+              </MenuItem>
+            </Menu>
+          </div>
+        </Toolbar>
+      </AppBar>
+
+      <Drawer anchor="left" open={isDrawerOpen} onClose={toggleDrawer(false)} className="drawer">
+        <div className="drawer-header">
+          <IconButton onClick={toggleDrawer(false)}>
+            <MenuIcon />
+          </IconButton>
         </div>
-      </div>
-    </section>
+        <List className="drawer-list">
+          {menuItems.map((item) => (
+            <ListItem button key={item.text} component={NavLink} to={item.path} onClick={toggleDrawer(false)}>
+              <ListItemIcon>{item.icon}</ListItemIcon>
+              <ListItemText primary={item.text} />
+            </ListItem>
+          ))}
+        </List>
+      </Drawer>
+    </>
   );
 };
 
-export default Menu;
+export default MenuComponent;

@@ -9,7 +9,7 @@ const About = () => {
       <section className="About-wrapper">
         <video autoPlay muted loop className="background-video">
           <source
-            src="https://videos.pexels.com/video-files/7682708/7682708-sd_640_360_25fps.mp4"
+            src="https://assets.mixkit.co/videos/4839/4839-720.mp4"
             type="video/mp4"
           />
           Your browser does not support the video tag.

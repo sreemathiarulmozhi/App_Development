@@ -23,13 +23,17 @@ const Cart = () => {
 
   const handlePaymentClick = () => {
     const storedDetails = localStorage.getItem("userDetails");
-
+  
     if (!storedDetails) {
-      alert('You are not signed in. Please sign in to proceed with the payment.');
+      const proceed = window.confirm('You are not signed in. Please sign in to proceed with the payment. Click OK to sign up.');
+      if (proceed) {
+        navigate('/signup'); // Navigate to the signup page
+      }
     } else {
-      navigate('/payment');
+      navigate('/payment'); // Navigate to the payment page
     }
   };
+  
 
   return (
     <div className="Cart">

@@ -1,37 +1,34 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Button, TextField, Box, Typography, IconButton } from "@mui/material";
 import GoogleIcon from "@mui/icons-material/Google";
 import MicrosoftIcon from "@mui/icons-material/Microsoft";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [userDetails, setUserDetails] = useState(null); // State for user details
 
   const navigate = useNavigate();
 
-  const handleLogin = () => {
-    axios.post('/api/auth/login', { email, password })
-      .then(response => {
-        alert(response.data);
-        navigate('/home'); 
-      })
-      .catch(error => {
-        if (error.response) {
-          console.log('Error Response:', error.response.data);
-          alert('Login failed: ' + error.response.data);
-        } else if (error.request) {
+  // Define multiple mock credentials
+  const mockCredentials = [
+    { email: "sree@gmail.com", password: "sree", name: "Sree" },
+    { email: "tari@gmail.com", password: "sow", name: "Sowburni" },
+    { email: "sow@gmail.com", password: "tari", name: "Tari" }
+  ];
 
-          console.log('Error Request:', error.request);
-          alert('Login failed: No response from server');
-        } else {
-          
-          console.log('Error Message:', error.message);
-          alert('Login failed: ' + error.message);
-        }
-      });
-  };  
+  const handleLogin = () => {
+    const user = mockCredentials.find(cred => cred.email === email && cred.password === password);
+    if (user) {
+      setUserDetails(user); // Set user details
+      alert("Login successful!");
+      navigate('/'); // Redirect to home page
+    } else {
+      alert("Login failed: Invalid email or password.");
+    }
+  };
 
   const styles = {
     page: {
@@ -75,13 +72,23 @@ function Login() {
       color: "#4a3929",
       cursor: "pointer",
     },
+    userContainer: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      marginTop: "20px",
+    },
+    userName: {
+      marginLeft: "10px",
+      color: "#4a3929",
+    },
   };
 
   return (
     <div style={styles.page}>
       <video autoPlay muted loop style={styles.video}>
         <source
-          src="https://videos.pexels.com/video-files/3023167/3023167-uhd_2560_1440_30fps.mp4"
+          src="https://videos.pexels.com/video-files/2910039/2910039-uhd_2732_1440_24fps.mp4"
           type="video/mp4"
         />
         Your browser does not support the video tag.
@@ -138,6 +145,14 @@ function Login() {
             SignUp!
           </span>
         </Typography>
+        {userDetails && ( // Display user's name if available
+          <Box style={styles.userContainer}>
+            <AccountCircleIcon style={{ color: "#4a3929", fontSize: 40 }} />
+            <Typography variant="body1" style={styles.userName}>
+              {userDetails.name}
+            </Typography>
+          </Box>
+        )}
       </Box>
     </div>
   );

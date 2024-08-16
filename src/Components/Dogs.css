@@ -1,157 +1,40 @@
-body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-}
+/* Dogs.css */
 
-header {
-  background: #f4f4f4;
-  padding: 20px;
-  text-align: center;
-}
-
-header h1 {
-  margin: 0;
-}
-
-main {
-  padding: 20px;
-}
-
-.pet-cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-
-.pet-card {
-  background: #fff;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin: 10px;
-  padding: 20px;
-  width: 300px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
+.pet-image-container {
+  position: relative;
+  width: 100%;
+  height: 200px; /* Adjust height as needed */
 }
 
 .pet-image {
-  border-radius: 50%;
-}
-
-.pet-card h2 {
-  font-size: 1.5em;
-  margin: 0.5em 0;
-}
-
-.pet-card p {
-  text-align: left;
-  flex-grow: 1; 
-}
-
-.highlight {
-  font-style: italic;
-  font-weight: bold;
-  text-decoration: underline;
-}
-
-footer {
-  background: #f4f4f4;
-  padding: 10px;
-  text-align: center;
-}
-
-footer p {
-  margin: 0;
-}
-
-a {
-  color: blue;
-  text-decoration: underline; 
-}
-.btn-modal {
-  background: #115011;
-  color: white;
-  padding: 12px 25px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background 0.3s ease, transform 0.2s ease;
-  margin-top: auto;
-}
-
-.btn-modal:hover {
-  background: #115011;
-  transform: scale(1.05);
-}
-
-.btn-modal:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px #115011;
-}
-
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.7); 
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  opacity: 0; /* Hide overlay initially */
   transition: opacity 0.3s ease;
 }
 
-.modal-content {
-  background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  width: 90%;
-  max-width: 600px;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
-  transform: translateY(-20px);
+.pet-image-container:hover .overlay {
+  opacity: 1; /* Show overlay on hover */
 }
 
-.modal-content.show {
-  transform: translateY(0);
-}
-
-.close-button {
-  background: #e74c3c;
-  color: white;
-  padding: 10px 15px;
+.more-button {
+  background: none;
   border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  color: white;
   font-size: 16px;
-  transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.close-button:hover {
-  background: #c0392b;
-  transform: scale(1.05);
-}
-
-.close-button:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px #c0392b;
-}
-
-/* Responsive styling */
-@media (max-width: 768px) {
-  .modal-content {
-    width: 95%;
-  }
-
-  .btn-modal {
-    width: 100%;
-    padding: 12px;
-    font-size: 18px;
-  }
+  cursor: pointer;
 }

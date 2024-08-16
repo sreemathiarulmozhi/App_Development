@@ -471,7 +471,7 @@ const Petopia = () => {
   const [filterCategory, setFilterCategory] = useState("All");
   const [sortOption, setSortOption] = useState("low");
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 6; // Updated items per page
+  const itemsPerPage = 5; // Updated items per page
 
   const handleSearch = (event) => setSearchTerm(event.target.value);
 

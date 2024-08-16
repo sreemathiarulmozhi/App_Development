@@ -8,21 +8,23 @@ import "./Contact.css";
 
 const Contact = () => {
   const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
 
   const submit = async (e) => {
     e.preventDefault();
-    if (firstName.length === 0 || lastName.length === 0) {
-      alert("Name can't be empty!");
+    if (firstName.length === 0) {
+      alert("First Name can't be empty!");
     } else if (email.length === 0) {
       alert("Please provide a valid Email ID!");
+    } else if (phoneNumber.length === 0) {
+      alert("Please provide a Phone Number!");
     } else {
       try {
         const response = await axios.post("http://localhost:8080/api/contacts/add", {
           firstName,
-          lastName,
           email,
+          phoneNumber,
         });
         alert("Form submitted successfully!");
       } catch (error) {
@@ -41,13 +43,13 @@ const Contact = () => {
         </video>
       </div>
       <div className="ContactUs-main">
-        <h2 className="heading"> Feel free to contact us!</h2>
+        <h2 className="heading">Feel free to contact us!</h2>
       </div>
       <div className="separator">
         <div className="form">
           <form onSubmit={submit}>
             <div className="main">
-              <p> FILL YOUR DETAILS HERE. </p>
+              <p>FILL YOUR DETAILS HERE.</p>
               <div className="input-fields">
                 <input
                   type="text"
@@ -57,9 +59,9 @@ const Contact = () => {
                 />
                 <input
                   type="text"
-                  placeholder="Enter your PhoneNumber"
-                  name="lName"
-                  onChange={(e) => setLastName(e.target.value)}
+                  placeholder="Enter your phone number"
+                  name="phoneNumber"
+                  onChange={(e) => setPhoneNumber(e.target.value)}
                 />
                 <input
                   type="text"
@@ -75,13 +77,13 @@ const Contact = () => {
           </form>
         </div>
         <div className="guide">
-          <div className="guide-head"> A guide to donation:</div>
+          <div className="guide-head">A guide to donation:</div>
           <div className="text">
             <ul>
-              <div>Rehoming or donating your pet should be easy and stress-free both for you and your pet.</div>
-              <div>We have created a reliable, simple & free initiative to help you rehome your pet from your loving family directly to another family.</div>
-              <div>Make your pet look more attractive to potential new owners. Make sure your pet is vaccinated and checked by a veterinarian.</div>
-              <div>Be transparent/clear with the new owner. Share all the details about your pet's personality.</div>
+              <li>Rehoming or donating your pet should be easy and stress-free both for you and your pet.</li>
+              <li>We have created a reliable, simple & free initiative to help you rehome your pet from your loving family directly to another family.</li>
+              <li>Make your pet look more attractive to potential new owners. Make sure your pet is vaccinated and checked by a veterinarian.</li>
+              <li>Be transparent/clear with the new owner. Share all the details about your pet's personality.</li>
             </ul>
           </div>
         </div>
@@ -91,12 +93,12 @@ const Contact = () => {
           <div className="first"><p>OUR MOTTO!</p></div>
           <div className="motto">Animal safety | Adoption | Building new homes</div>
         </div>
-        <div className="footer-text"> @2024| by adoptadoggo foundation</div>
+        <div className="footer-text"> @2024 | by AdoptADoggo Foundation</div>
         <div className="icon-section">
-          <a href={() => false}><FacebookIcon /></a>
-          <a href={() => false}><InstagramIcon /></a>
-          <a href={() => false}><TwitterIcon /></a>
-          <a href={() => false}><MailOutlineIcon /></a>
+          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><FacebookIcon /></a>
+          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"><InstagramIcon /></a>
+          <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer"><TwitterIcon /></a>
+          <a href="mailto:info@adoptadoggo.com"><MailOutlineIcon /></a>
         </div>
       </div>
     </>
@@ -104,5 +106,3 @@ const Contact = () => {
 };
 
 export default Contact;
-
-
